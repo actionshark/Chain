@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+	<string name="app_name">Chain</string>
+
+	<string name="def_nickname">Noname</string>
+
+	<string name="err_nickname_length">Nickname length must be %1$d-%2$d</string>
+	<string name="err_no_network">No Network</string>
+
+	<string name="msg_input_nickname">Input Your Nickname Please</string>
+
+	<string name="wd_cancel">Cancel</string>
+	<string name="wd_confirm">Confirm</string>
+</resources>
