@@ -3,6 +3,8 @@ package com.as.chain.activity;
 import com.as.chain.R;
 import com.as.chain.ui.IDialogClickListener;
 import com.as.chain.ui.InputDialog;
+import com.as.chain.util.Const;
+import com.as.chain.util.DataMgr;
 import com.stone.app.App;
 import com.stone.app.Setting;
 import com.stone.network.NetworkUtil;
@@ -15,6 +17,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends BaseActivity {
+	public static final String TAG = MainActivity.class.getSimpleName();
+	
 	private TextView mTvNickname;
 	
 	private TextView mTvAddress;
@@ -49,7 +53,7 @@ public class MainActivity extends BaseActivity {
 								return;
 							}
 							
-							Setting.getInstance().setString("nickname", input);
+							Setting.getInstance().setString(Const.KEY_NICKNAME, input);
 							mTvNickname.setText(input);
 						}
 						
@@ -64,13 +68,15 @@ public class MainActivity extends BaseActivity {
 		mTvNickname = (TextView) findViewById(R.id.tv_nickname);
 		
 		mTvAddress = (TextView) findViewById(R.id.tv_address);
+		
+		DataMgr.checkLocalData();
 	}
 	
 	@Override
 	protected void onResume() {
 		super.onResume();
 		
-		String nickname = Setting.getInstance().getString("nickname");
+		String nickname = Setting.getInstance().getString(Const.KEY_NICKNAME);
 		if (nickname == null) {
 			nickname = App.getInstance().getResources().getString(R.string.def_nickname);
 		}

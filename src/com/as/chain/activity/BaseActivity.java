@@ -9,11 +9,19 @@ import android.view.View;
 import android.view.ViewGroup;
 
 public abstract class BaseActivity extends Activity {
+	protected static BaseActivity sActivity;
+	
 	protected MetroAnimation mMetroAnimation;
+	
+	public static BaseActivity getInstance() {
+		return sActivity;
+	}
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		
+		sActivity = this;
 
 		mMetroAnimation = new MetroAnimation();
 	}

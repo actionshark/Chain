@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:stone="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_bg"
+    android:orientation="vertical" >
+
+    <com.stone.metro.MetroLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        stone:color_pressed="@color/metro_pre"
+        stone:color="@color/metro_nor" >
+
+        <TextView
+            android:id="@+id/tv_message"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:gravity="center"
+            android:textColor="@color/main_text"
+            android:textSize="16sp" />
+    </com.stone.metro.MetroLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_button"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal" >
+
+        <com.stone.metro.MetroLayout
+            android:id="@+id/ml_btn_0"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            stone:color_pressed="@color/metro_pre"
+            stone:color="@color/metro_nor" >
+
+            <TextView
+                android:id="@+id/tv_text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:textColor="@color/main_text"
+                android:textSize="15sp" />
+        </com.stone.metro.MetroLayout>
+
+        <com.stone.metro.MetroLayout
+            android:id="@+id/ml_btn_1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            stone:color_pressed="@color/metro_pre"
+            stone:color="@color/metro_nor" >
+
+            <TextView
+                android:id="@+id/tv_text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:textColor="@color/main_text"
+                android:textSize="15sp" />
+        </com.stone.metro.MetroLayout>
+
+        <com.stone.metro.MetroLayout
+            android:id="@+id/ml_btn_2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            stone:color_pressed="@color/metro_pre"
+            stone:color="@color/metro_nor" >
+
+            <TextView
+                android:id="@+id/tv_text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:textColor="@color/main_text"
+                android:textSize="15sp" />
+        </com.stone.metro.MetroLayout>
+
+        <com.stone.metro.MetroLayout
+            android:id="@+id/ml_btn_3"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            stone:color_pressed="@color/metro_pre"
+            stone:color="@color/metro_nor" >
+
+            <TextView
+                android:id="@+id/tv_text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:textColor="@color/main_text"
+                android:textSize="15sp" />
+        </com.stone.metro.MetroLayout>
+
+        <com.stone.metro.MetroLayout
+            android:id="@+id/ml_btn_4"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            stone:color_pressed="@color/metro_pre"
+            stone:color="@color/metro_nor" >
+
+            <TextView
+                android:id="@+id/tv_text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:textColor="@color/main_text"
+                android:textSize="15sp" />
+        </com.stone.metro.MetroLayout>
+    </LinearLayout>
+
+</LinearLayout>

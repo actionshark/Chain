@@ -5,9 +5,12 @@
 
 	<string name="def_nickname">Noname</string>
 
+	<string name="err_data_init_failed">Data Init Failed!</string>
+	<string name="err_data_init_success">Data Init Success!</string>
 	<string name="err_nickname_length">Nickname length must be %1$d-%2$d</string>
 	<string name="err_no_network">No Network</string>
 
+	<string name="msg_local_data_checking">Local data is checking</string>
 	<string name="msg_input_nickname">Input Your Nickname Please</string>
 
 	<string name="wd_cancel">Cancel</string>

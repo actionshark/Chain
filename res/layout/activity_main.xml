@@ -66,6 +66,7 @@
 		android:orientation="vertical">
 
 		<com.stone.metro.MetroLayout
+		    android:id="@+id/ml_src"
 			android:layout_width="match_parent"
 			android:layout_height="0dp"
 			android:layout_weight="1"

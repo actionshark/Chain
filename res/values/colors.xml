@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-	<color name="main_bg">#ff000000</color>
+	<color name="main_bg">#ffffffff</color>
 
-	<color name="metro_nor">#ff0000ff</color>
-	<color name="metro_pre">#880000ff</color>
+	<color name="metro_nor">#ffebebeb</color>
+	<color name="metro_pre">#88ebebeb</color>
 
-	<color name="main_text">#ffffffff</color>
+	<color name="main_text">#ff383838</color>
 
 </resources>
