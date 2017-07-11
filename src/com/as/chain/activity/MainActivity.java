@@ -5,6 +5,7 @@ import com.as.chain.ui.IDialogClickListener;
 import com.as.chain.ui.InputDialog;
 import com.as.chain.util.Const;
 import com.as.chain.util.DataMgr;
+import com.as.game.ScriptMgr;
 import com.stone.app.App;
 import com.stone.app.Setting;
 import com.stone.network.NetworkUtil;
@@ -68,6 +69,14 @@ public class MainActivity extends BaseActivity {
 		mTvNickname = (TextView) findViewById(R.id.tv_nickname);
 		
 		mTvAddress = (TextView) findViewById(R.id.tv_address);
+		
+		findViewById(R.id.ml_hero).setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				ScriptMgr sm = ScriptMgr.getInstance();
+				sm.getHeroes();
+			}
+		});
 		
 		DataMgr.checkLocalData();
 	}

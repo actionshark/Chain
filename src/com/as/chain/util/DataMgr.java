@@ -25,9 +25,13 @@ import android.content.res.AssetManager;
 public class DataMgr {
 	public static final String TAG = DataMgr.class.getSimpleName();
 	
-	public static File getSrcDir() {
+	public static final File SRC_DIR;
+	public static final String SRC_PATH;
+	
+	static {
 		Context context = App.getInstance().getContext();
-		return new File(context.getFilesDir(), "src");
+		SRC_DIR = new File(context.getFilesDir(), "src");
+		SRC_PATH = SRC_DIR.getPath() + "/";
 	}
 	
 	public static void checkLocalData() {
@@ -62,7 +66,7 @@ public class DataMgr {
 					
 					is = am.open("src.zip");
 					
-					File dir = getSrcDir();
+					File dir = SRC_DIR;
 					if (dir.exists()) {
 						if (dir.isDirectory()) {
 							FileUtil.clearDir(dir);

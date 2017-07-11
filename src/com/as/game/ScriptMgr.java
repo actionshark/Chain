@@ -1,17 +1,22 @@
-package com.as.chain.util;
+package com.as.game;
 
 import org.luaj.vm2.Globals;
-import org.luaj.vm2.LuaValue;
 import org.luaj.vm2.lib.jse.JsePlatform;
 
 public class ScriptMgr {
+	public static final String TAG = ScriptMgr.class.getSimpleName();
+	
 	private static ScriptMgr sMgr;
 	
-	public static void createMgr() {
+	public static synchronized void createMgr() {
 		sMgr = new ScriptMgr();
 	}
 	
-	public static ScriptMgr getInstance() {
+	public static synchronized ScriptMgr getInstance() {
+		if (sMgr == null) {
+			createMgr();
+		}
+		
 		return sMgr;
 	}
 	
@@ -19,14 +24,13 @@ public class ScriptMgr {
 	
 	private final Globals mGlobals;
 	
-	private final String mParentPath = DataMgr.getSrcDir().getPath();
-	
 	public ScriptMgr() {
 		mGlobals = JsePlatform.standardGlobals();
-		init();
+		
+		Define.load();
 	}
 	
-	private void init() {
-		LuaValue common = mGlobals.loadfile(DataMgr.getSrcDir() + "");
+	public Globals getGlobals() {
+		return mGlobals;
 	}
 }
