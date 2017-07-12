@@ -2,8 +2,8 @@ package com.as.chain.ui;
 
 import com.as.chain.R;
 import com.as.chain.ui.IDialogClickListener.ClickType;
-import com.stone.app.App;
-import com.stone.app.Res;
+import com.as.app.App;
+import com.as.app.Res;
 
 import android.app.Dialog;
 import android.content.Context;

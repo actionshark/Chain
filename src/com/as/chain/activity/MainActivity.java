@@ -6,9 +6,9 @@ import com.as.chain.ui.InputDialog;
 import com.as.chain.util.Const;
 import com.as.chain.util.DataMgr;
 import com.as.game.ScriptMgr;
-import com.stone.app.App;
-import com.stone.app.Setting;
-import com.stone.network.NetworkUtil;
+import com.as.app.App;
+import com.as.app.Setting;
+import com.as.network.NetworkUtil;
 
 import android.app.Dialog;
 import android.os.Bundle;
@@ -74,7 +74,6 @@ public class MainActivity extends BaseActivity {
 			@Override
 			public void onClick(View v) {
 				ScriptMgr sm = ScriptMgr.getInstance();
-				sm.getHeroes();
 			}
 		});
 		

@@ -1,7 +1,7 @@
 package com.as.chain.activity;
 
 import com.as.chain.R;
-import com.stone.metro.MetroAnimation;
+import com.as.metro.MetroAnimation;
 
 import android.app.Activity;
 import android.os.Bundle;

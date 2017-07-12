@@ -7,7 +7,7 @@
 	android:background="@color/main_bg"
 	android:orientation="vertical">
 
-	<com.stone.metro.MetroLayout
+	<com.as.metro.MetroLayout
 		android:layout_width="match_parent"
 		android:layout_height="0dp"
 		android:layout_weight="1"
@@ -38,7 +38,7 @@
 			android:textColor="@color/main_text"
 			android:singleLine="true"
 			android:hint="" />
-	</com.stone.metro.MetroLayout>
+	</com.as.metro.MetroLayout>
 
 	<LinearLayout
 		android:id="@+id/ll_button"
@@ -46,7 +46,7 @@
 		android:layout_height="50dp"
 		android:orientation="horizontal">
 
-		<com.stone.metro.MetroLayout
+		<com.as.metro.MetroLayout
 			android:id="@+id/ml_cancel"
 			android:layout_width="0dp"
 			android:layout_height="match_parent"
@@ -61,9 +61,9 @@
 				android:textSize="@dimen/main_text_small"
 				android:textColor="@color/main_text"
 				android:text="@string/wd_cancel" />
-		</com.stone.metro.MetroLayout>
+		</com.as.metro.MetroLayout>
 
-		<com.stone.metro.MetroLayout
+		<com.as.metro.MetroLayout
 			android:id="@+id/ml_confirm"
 			android:layout_width="0dp"
 			android:layout_height="match_parent"
@@ -78,7 +78,7 @@
 				android:textSize="@dimen/main_text_small"
 				android:textColor="@color/main_text"
 				android:text="@string/wd_confirm" />
-		</com.stone.metro.MetroLayout>
+		</com.as.metro.MetroLayout>
 
 	</LinearLayout>
 

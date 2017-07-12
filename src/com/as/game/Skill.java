@@ -2,7 +2,7 @@ package com.as.game;
 
 import org.luaj.vm2.LuaValue;
 
-import com.stone.log.Logger;
+import com.as.log.Logger;
 
 public class Skill {
 	public static final String TAG = Skill.class.getSimpleName();

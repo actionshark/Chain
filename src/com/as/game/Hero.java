@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.luaj.vm2.LuaValue;
 
-import com.stone.log.Logger;
+import com.as.log.Logger;
 
 public class Hero {
 	public static final String TAG = Hero.class.getSimpleName();
