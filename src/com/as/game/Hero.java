@@ -4,7 +4,8 @@ import java.util.List;
 
 import org.luaj.vm2.LuaValue;
 
-import com.as.log.Logger;
+import com.js.log.Level;
+import com.js.log.Logger;
 
 public class Hero {
 	public static final String TAG = Hero.class.getSimpleName();
@@ -34,7 +35,7 @@ public class Hero {
 			
 			return true;
 		} catch (Exception e) {
-			Logger.print(TAG, e);
+			Logger.getInstance().print(TAG, Level.E, e);
 		}
 		
 		return false;

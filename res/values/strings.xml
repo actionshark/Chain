@@ -9,7 +9,10 @@
 	<string name="err_data_init_success">Data Init Success!</string>
 	<string name="err_nickname_length">Nickname length must be %1$d-%2$d</string>
 	<string name="err_no_network">No Network</string>
+	<string name="err_update_failed">Update Failed, please retry</string>
 
+	<string name="msg_update_to_latest_version">Has been update to latest version\nEntering the game</string>
+	<string name="msg_checking_update">Checking update, please wait</string>
 	<string name="msg_local_data_checking">Local data is checking</string>
 	<string name="msg_input_nickname">Input Your Nickname Please</string>
 

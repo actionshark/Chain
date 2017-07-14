@@ -54,7 +54,7 @@ public class MainActivity extends BaseActivity {
 								return;
 							}
 							
-							Setting.getInstance().setString(Const.KEY_NICKNAME, input);
+							// Setting.getInstance().setString(Const.KEY_NICKNAME, input);
 							mTvNickname.setText(input);
 						}
 						
@@ -76,15 +76,13 @@ public class MainActivity extends BaseActivity {
 				ScriptMgr sm = ScriptMgr.getInstance();
 			}
 		});
-		
-		DataMgr.checkLocalData();
 	}
 	
 	@Override
 	protected void onResume() {
 		super.onResume();
 		
-		String nickname = Setting.getInstance().getString(Const.KEY_NICKNAME);
+		String nickname = null; //Setting.getInstance().getString(Const.KEY_NICKNAME);
 		if (nickname == null) {
 			nickname = App.getInstance().getResources().getString(R.string.def_nickname);
 		}

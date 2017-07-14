@@ -8,7 +8,7 @@ import com.as.chain.util.DataMgr;
 public class Define {
 	public static void load() {
 		Globals globals = ScriptMgr.getInstance().getGlobals();
-		LuaValue define = globals.loadfile(DataMgr.SRC_PATH + "common/define.lua");
+		LuaValue define = globals.loadfile(DataMgr.FILE_PATH + "common/define.lua");
 		define.call();
 	}
 	

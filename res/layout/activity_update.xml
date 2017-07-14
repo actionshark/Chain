@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:stone="http://schemas.android.com/apk/res-auto"
+	android:id="@+id/vg_root"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="horizontal"
+	android:background="@color/main_bg">
+
+		<com.as.metro.MetroLayout
+			android:id="@+id/ml_roleinfo"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			stone:color="@color/metro_nor"
+			stone:color_pressed="@color/metro_pre">
+
+			<TextView
+				android:id="@+id/tv_text"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:layout_margin="20dp"
+				android:gravity="center"
+				android:textSize="@dimen/main_text_small"
+				android:textColor="@color/main_text" />
+
+		</com.as.metro.MetroLayout>
+
+</LinearLayout>

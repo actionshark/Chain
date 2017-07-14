@@ -2,7 +2,8 @@ package com.as.game;
 
 import org.luaj.vm2.LuaValue;
 
-import com.as.log.Logger;
+import com.js.log.Level;
+import com.js.log.Logger;
 
 public class Skill {
 	public static final String TAG = Skill.class.getSimpleName();
@@ -29,7 +30,7 @@ public class Skill {
 			
 			return true;
 		} catch (Exception e) {
-			Logger.print(TAG, e);
+			Logger.getInstance().print(TAG, Level.E, e);
 		}
 		
 		return false;
