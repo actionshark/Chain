@@ -30,14 +30,14 @@ public class SimpleDialog extends Dialog {
 
 		Window window = getWindow();
 		LayoutParams lp = window.getAttributes();
-		lp.width = Res.getInstance().getScreenWidth() * 5 / 10;
-		lp.height = Res.getInstance().getScreenHeight() * 6 / 10;
+		lp.width = Res.getScreenWidth() * 5 / 10;
+		lp.height = Res.getScreenHeight() * 6 / 10;
 		window.setAttributes(lp);
 
 		mTvMessage = (TextView) findViewById(R.id.tv_message);
 
 		for (int i = 0; i < mViewButtons.length; i++) {
-			int id = Res.getInstance().getIdId("ml_btn_" + i);
+			int id = Res.getIdId("ml_btn_" + i);
 			mViewButtons[i] = findViewById(id);
 			mTvBtnTexts[i] = (TextView) mViewButtons[i].findViewById(R.id.tv_text);
 
@@ -76,7 +76,7 @@ public class SimpleDialog extends Dialog {
 			if (i < btns.length) {
 				Object btn = btns[i];
 				if (btn instanceof Integer) {
-					btn = App.getInstance().getResources().getString((Integer) btn);
+					btn = App.getResources().getString((Integer) btn);
 				}
 
 				mTvBtnTexts[i].setText(String.valueOf(btn));

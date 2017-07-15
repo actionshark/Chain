@@ -30,8 +30,8 @@ public class InputDialog extends Dialog {
 
 		Window window = getWindow();
 		LayoutParams lp = window.getAttributes();
-		lp.width = Res.getInstance().getScreenWidth() * 5 / 10;
-		lp.height = Res.getInstance().getScreenHeight() * 6 / 10;
+		lp.width = Res.getScreenWidth() * 5 / 10;
+		lp.height = Res.getScreenHeight() * 6 / 10;
 		window.setAttributes(lp);
 
 		mTvMessage = (TextView) findViewById(R.id.tv_message);

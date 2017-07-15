@@ -28,33 +28,28 @@
 				android:layout_width="match_parent"
 				android:layout_height="0dp"
 				android:layout_weight="1"
-				android:paddingLeft="20dp"
-				android:paddingBottom="10dp"
-				android:gravity="left|bottom"
+				android:gravity="center"
 				android:textSize="@dimen/main_text_small"
 				android:textColor="@color/main_text" />
-
-			<TextView
-				android:id="@+id/tv_address"
-				android:layout_width="match_parent"
-				android:layout_height="0dp"
-				android:layout_weight="1"
-				android:paddingLeft="20dp"
-				android:paddingTop="10dp"
-				android:gravity="left|top"
-				android:textSize="@dimen/main_text_small"
-				android:textColor="@color/main_text"
-				android:text="192.168.0.1" />
 
 		</com.as.metro.MetroLayout>
 
 		<com.as.metro.MetroLayout
-		    android:id="@+id/ml_hero"
+			android:id="@+id/ml_hero"
 			android:layout_width="match_parent"
 			android:layout_height="0dp"
 			android:layout_weight="1"
 			stone:color="@color/metro_nor"
 			stone:color_pressed="@color/metro_pre">
+
+			<TextView
+				android:id="@+id/tv_hero"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:gravity="center"
+				android:textSize="@dimen/main_text_small"
+				android:textColor="@color/main_text"
+				android:text="@string/wd_hero" />
 
 		</com.as.metro.MetroLayout>
 
@@ -67,21 +62,40 @@
 		android:orientation="vertical">
 
 		<com.as.metro.MetroLayout
-		    android:id="@+id/ml_src"
+			android:id="@+id/ml_battle"
 			android:layout_width="match_parent"
 			android:layout_height="0dp"
 			android:layout_weight="1"
 			stone:color="@color/metro_nor"
 			stone:color_pressed="@color/metro_pre">
+
+			<TextView
+				android:id="@+id/tv_battle"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:gravity="center"
+				android:textSize="@dimen/main_text_small"
+				android:textColor="@color/main_text"
+				android:text="@string/wd_battle" />
 
 		</com.as.metro.MetroLayout>
 
 		<com.as.metro.MetroLayout
+			android:id="@+id/ml_history"
 			android:layout_width="match_parent"
 			android:layout_height="0dp"
 			android:layout_weight="1"
 			stone:color="@color/metro_nor"
 			stone:color_pressed="@color/metro_pre">
+
+			<TextView
+				android:id="@+id/tv_history"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:gravity="center"
+				android:textSize="@dimen/main_text_small"
+				android:textColor="@color/main_text"
+				android:text="@string/wd_history" />
 
 		</com.as.metro.MetroLayout>
 

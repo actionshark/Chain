@@ -8,7 +8,7 @@ public class App extends Application {
 	public void onCreate() {
 		super.onCreate();
 		
-		com.as.app.App.getInstance().onApplicationCreate(this);
+		com.as.app.App.onApplicationCreate(this);
 		
 		Setting.setInstance("setting");
 	}
