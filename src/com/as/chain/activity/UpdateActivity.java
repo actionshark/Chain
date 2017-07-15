@@ -30,7 +30,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class UpdateActivity extends BaseActivity {
 	public static final String TAG = UpdateActivity.class.getSimpleName();
@@ -41,6 +43,8 @@ public class UpdateActivity extends BaseActivity {
 	private final List<String> mDownloadList = new ArrayList<String>();
 	
 	private Semaphore mSemaphore;
+	
+	private long mLatestBackTime = 0;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -266,5 +270,27 @@ public class UpdateActivity extends BaseActivity {
 		
 		Intent intent = new Intent(UpdateActivity.this, MainActivity.class);
 		startActivity(intent);
+		
+		finish();
+	}
+	
+	@Override
+	public boolean onKeyUp(int keyCode, KeyEvent event) {
+		if (keyCode == KeyEvent.KEYCODE_BACK) {
+			long now = System.currentTimeMillis();
+			
+			if (now - mLatestBackTime > 500) {
+				Toast.makeText(this, R.string.msg_press_two_times_to_exit,
+					Toast.LENGTH_SHORT).show();
+				mLatestBackTime = now;
+			} else {
+				finish();
+				com.as.app.App.exitApp();
+			}
+			
+			return true;
+		}
+		
+		return super.onKeyUp(keyCode, event);
 	}
 }
