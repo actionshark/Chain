@@ -1,4 +1,4 @@
-package com.as.game;
+package com.as.chain.script;
 
 import java.util.List;
 

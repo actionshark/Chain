@@ -3,6 +3,7 @@
 
 	<string name="app_name">Chain</string>
 
+	<string name="err_nickname_length_limit">Nickname length mast be %1$d-%2$d</string>
 	<string name="err_update_failed">Update Failed, please restart and retry</string>
 
 	<string name="msg_checking_update">Checking update, please wait</string>
@@ -11,6 +12,7 @@
 	</string>
 	<string name="msg_deleting_files">Deleting %1$d/%2$d files\n%3$s</string>
 	<string name="msg_downloading_files">Downloading %1$d/%2$d files\n%3$s</string>
+	<string name="msg_input_nickname">Please input nickname</string>
 	<string name="msg_press_two_times_to_exit">Press two times to exit</string>
 	<string name="msg_update_to_latest_version">Has been update to latest version\nEntering the
 		game
@@ -19,7 +21,11 @@
 	<string name="wd_battle">Battle</string>
 	<string name="wd_cancel">Cancel</string>
 	<string name="wd_confirm">Confirm</string>
+	<string name="wd_connecting">Connecting</string>
 	<string name="wd_hero">Hero</string>
 	<string name="wd_history">History</string>
 	<string name="wd_ok">OK</string>
+	<string name="wd_offline">Offline</string>
+	<string name="wd_online">Online</string>
+	<string name="wd_unkonwn">Unknown</string>
 </resources>

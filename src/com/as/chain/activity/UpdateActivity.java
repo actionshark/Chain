@@ -122,8 +122,6 @@ public class UpdateActivity extends BaseActivity {
 	
 	private void checkMajorVersion() throws Exception {
 		// 计算本地版本号
-		Logger.getInstance().print(TAG, Level.D, "client files :");
-		
 		Map<String, String> clientMap = new HashMap<String, String>();
 		calcMD5(DataMgr.UPDATE_DIR, clientMap);
 		
@@ -136,32 +134,23 @@ public class UpdateActivity extends BaseActivity {
 		Scanner scanner = new Scanner(is);
 		Map<String, String> serverMap = new HashMap<String, String>();
 		
-		Logger.getInstance().print(TAG, Level.D, "server files :");
-		
 		while (scanner.hasNext()) {
 			String name = scanner.next();
 			String md5 = scanner.next();
 			serverMap.put(name, md5);
-			
-			Logger.getInstance().print(TAG, Level.D, name, md5);
 		}
 		
 		scanner.close();
 		
 		// 得出要删除的文件
-		Logger.getInstance().print(TAG, Level.D, "delete files :");
-		
 		mDeleteList.clear();
 		for (String name : clientMap.keySet()) {
 			if (serverMap.containsKey(name) == false) {
 				mDeleteList.add(name);
-				
-				Logger.getInstance().print(TAG, Level.D, name);
 			}
 		}
 		
 		// 得出要下载的文件
-		Logger.getInstance().print(TAG, Level.D, "download files :");
 		mDownloadList.clear();
 		for (Entry<String, String> entry : serverMap.entrySet()) {
 			String name = entry.getKey();
@@ -176,8 +165,6 @@ public class UpdateActivity extends BaseActivity {
 			}
 			
 			mDownloadList.add(name);
-			
-			Logger.getInstance().print(TAG, Level.D, name);
 		}
 	}
 	
@@ -196,8 +183,6 @@ public class UpdateActivity extends BaseActivity {
 			is.close();
 			
 			map.put(name, md5);
-			
-			Logger.getInstance().print(TAG, Level.D, name, md5);
 		}
 	}
 	
@@ -250,7 +235,6 @@ public class UpdateActivity extends BaseActivity {
 			}
 			
 			String server = DataMgr.UPDATE_FILE_URL + name;
-			Logger.getInstance().print(TAG, Level.D, server, client.getAbsolutePath());
 			
 			URL url = new URL(server);
 			URLConnection connection = url.openConnection();
@@ -284,7 +268,6 @@ public class UpdateActivity extends BaseActivity {
 					Toast.LENGTH_SHORT).show();
 				mLatestBackTime = now;
 			} else {
-				finish();
 				com.as.app.App.exitApp();
 			}
 			

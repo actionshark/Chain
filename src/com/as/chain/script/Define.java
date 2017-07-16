@@ -1,4 +1,4 @@
-package com.as.game;
+package com.as.chain.script;
 
 import org.luaj.vm2.Globals;
 import org.luaj.vm2.LuaValue;
