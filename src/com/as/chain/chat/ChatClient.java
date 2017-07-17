@@ -34,7 +34,7 @@ public class ChatClient {
 		byte[] bs = str.getBytes();
 		mClient.send(bs);
 		
-		Logger.getInstance().print(TAG, Level.V, str);
+		Logger.getInstance().print(TAG, Level.D, str);
 	}
 	
 	public void start() {
@@ -55,10 +55,10 @@ public class ChatClient {
 			}
 
 			@Override
-			public void onConnectFailed(TalkClient client) {
+			public void onConnecting(TalkClient client) {
 				synchronized (ChatClient.this) {
-					if (mStatus != Status.Offline) {
-						mStatus = Status.Offline;
+					if (mStatus != Status.Connecting) {
+						mStatus = Status.Connecting;
 						BrcstMgr.getInstance().send(TAG, mStatus);
 					}
 				}
@@ -89,17 +89,7 @@ public class ChatClient {
 			}
 
 			@Override
-			public void onDisconnected(TalkClient client) {
-				synchronized (ChatClient.this) {
-					if (mStatus != Status.Offline) {
-						mStatus = Status.Offline;
-						BrcstMgr.getInstance().send(TAG, mStatus);
-					}
-				}
-			}
-
-			@Override
-			public void onClosed(TalkClient client) {
+			public void onOffline(TalkClient client) {
 				synchronized (ChatClient.this) {
 					if (mStatus != Status.Offline) {
 						mStatus = Status.Offline;

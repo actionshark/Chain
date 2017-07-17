@@ -49,7 +49,7 @@ public class DataMgr {
 	
 	public static synchronized void connectServer() {
 		if (mNetClient != null) {
-			mNetClient.close();
+			mNetClient.close(false);
 		}
 		
 		mNetClient = new NetClient();

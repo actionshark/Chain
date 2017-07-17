@@ -147,7 +147,7 @@ public class MainActivity extends BaseActivity {
 			mTvStatus.setTextColor(0xffff0000);
 		} else if (status == ChatClient.Status.Connecting) {
 			mTvStatus.setText(R.string.wd_connecting);
-			mTvStatus.setTextColor(0xffbbbb00);
+			mTvStatus.setTextColor(0xffcc9900);
 		} else {
 			mTvStatus.setTag(R.string.wd_unkonwn);
 			mTvStatus.setTextColor(0xff000000);
