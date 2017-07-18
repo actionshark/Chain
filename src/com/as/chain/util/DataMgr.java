@@ -22,7 +22,7 @@ public class DataMgr {
 	public static final String UPDATE_URL = "http://101.200.59.142/chain/";
 	public static final String UPDATE_FILE_URL = "http://101.200.59.142/chain/file/";
 	
-	public static final String SERVER_HOST = "192.168.2.104";
+	public static final String SERVER_HOST = "101.200.59.142";
 	public static final int SERVER_PORT = 20001;
 	
 	private static NetClient mNetClient;

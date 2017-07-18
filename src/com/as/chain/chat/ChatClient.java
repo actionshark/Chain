@@ -42,6 +42,8 @@ public class ChatClient {
 		mClient.setListener(new ITalkClientListener() {
 			@Override
 			public void onConnected(TalkClient client) {
+				Logger.getInstance().print(TAG, Level.D);
+				
 				synchronized (ChatClient.this) {
 					if (mStatus != Status.Connecting) {
 						mStatus = Status.Connecting;
