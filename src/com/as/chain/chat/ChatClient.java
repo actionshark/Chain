@@ -25,7 +25,7 @@ public class ChatClient {
 		mClient = client;
 	}
 	
-	public Status getStatus() {
+	public synchronized Status getStatus() {
 		return mStatus;
 	}
 	
@@ -73,7 +73,6 @@ public class ChatClient {
 				synchronized (ChatClient.this) {
 					if (mStatus != Status.Online) {
 						mStatus = Status.Online;
-
 						BrcstMgr.getInstance().send(TAG, mStatus);
 					}
 				}

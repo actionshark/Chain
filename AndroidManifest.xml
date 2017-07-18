@@ -20,7 +20,8 @@
 		android:theme="@style/activity_theme">
 		<activity
 			android:name=".activity.UpdateActivity"
-			android:screenOrientation="sensorLandscape">
+			android:screenOrientation="sensorLandscape"
+			android:configChanges="keyboardHidden|orientation|screenSize">
 			<intent-filter>
 				<action android:name="android.intent.action.MAIN" />
 
@@ -30,7 +31,8 @@
 
 		<activity
 			android:name=".activity.MainActivity"
-			android:screenOrientation="sensorLandscape" />
+			android:screenOrientation="sensorLandscape"
+			android:configChanges="keyboardHidden|orientation|screenSize" />
 	</application>
 
 </manifest>
