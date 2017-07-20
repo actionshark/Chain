@@ -4,7 +4,7 @@ import java.io.File;
 
 import com.as.app.App;
 import com.as.chain.chat.ChatClient;
-import com.as.chain.chat.UserInfor;
+import com.as.chain.chat.UserInfo;
 import com.js.network.NetClient;
 import com.js.talk.TalkClient;
 
@@ -29,7 +29,7 @@ public class DataMgr {
 	private static TalkClient mTalkClient;
 	private static ChatClient mChatClient;
 	
-	private static UserInfor sUserInfor;
+	private static UserInfo sUserInfor;
 	
 	static {
 		Context context = App.getContext();
@@ -68,11 +68,11 @@ public class DataMgr {
 		return mChatClient;
 	}
 	
-	public static synchronized void setUserInfo(UserInfor ui) {
+	public static synchronized void setUserInfo(UserInfo ui) {
 		sUserInfor = ui;
 	}
 	
-	public static synchronized UserInfor getUserInfo() {
+	public static synchronized UserInfo getUserInfo() {
 		return sUserInfor;
 	}
 }

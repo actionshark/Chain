@@ -33,6 +33,11 @@
 			android:name=".activity.MainActivity"
 			android:screenOrientation="sensorLandscape"
 			android:configChanges="keyboardHidden|orientation|screenSize" />
+		
+		<activity
+			android:name=".activity.HeroActivity"
+			android:screenOrientation="sensorLandscape"
+			android:configChanges="keyboardHidden|orientation|screenSize" />
 	</application>
 
 </manifest>

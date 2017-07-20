@@ -2,9 +2,9 @@ package com.as.chain.activity;
 
 import com.as.chain.R;
 import com.as.chain.chat.ChatClient;
-import com.as.chain.chat.UserInfor;
+import com.as.chain.chat.UserInfo;
 import com.as.chain.chat.req.EditNickname;
-import com.as.chain.chat.rsp.UserInfo;
+import com.as.chain.chat.rsp.PushUserInfo;
 import com.as.chain.ui.IDialogClickListener;
 import com.as.chain.ui.InputDialog;
 import com.as.chain.util.DataMgr;
@@ -12,6 +12,7 @@ import com.js.event.BrcstMgr;
 import com.js.event.IBrcstListener;
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
@@ -32,7 +33,7 @@ public class MainActivity extends BaseActivity {
 	private IBrcstListener mListener = new IBrcstListener() {
 		@Override
 		public void onBroadcast(String name, Object data) {
-			if (UserInfo.TAG.equals(name)) {
+			if (PushUserInfo.TAG.equals(name)) {
 				updateNickname();
 			} else if (ChatClient.TAG.equals(name)) {
 				updateStatus();
@@ -54,6 +55,14 @@ public class MainActivity extends BaseActivity {
 			}
 		});
 		
+		findViewById(R.id.ml_hero).setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent(MainActivity.this, HeroActivity.class);
+				startActivity(intent);
+			}
+		});
+		
 		DataMgr.connectServer();
 	}
 	
@@ -61,7 +70,7 @@ public class MainActivity extends BaseActivity {
 	protected void onResume() {
 		super.onResume();
 		
-		BrcstMgr.getInstance().addListener(UserInfo.TAG, mListener, true);
+		BrcstMgr.getInstance().addListener(PushUserInfo.TAG, mListener, true);
 		BrcstMgr.getInstance().addListener(ChatClient.TAG, mListener, true);
 		
 		updateNickname();
@@ -95,7 +104,7 @@ public class MainActivity extends BaseActivity {
 	}
 	
 	private void updateNickname() {
-		UserInfor ui = DataMgr.getUserInfo();
+		UserInfo ui = DataMgr.getUserInfo();
 		
 		if (ui != null && ui.nickname != null) {
 			mTvNickname.setText(ui.nickname);

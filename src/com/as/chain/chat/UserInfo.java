@@ -1,6 +1,6 @@
 package com.as.chain.chat;
 
-public class UserInfor extends com.js.talk.UserInfo {
+public class UserInfo extends com.js.talk.UserInfo {
 	public static final String KEY_ID = "id";
 	public static final String KEY_ACCOUNT = "account";
 	public static final String KEY_NICKNAME = "nickname";
