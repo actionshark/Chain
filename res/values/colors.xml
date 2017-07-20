@@ -3,7 +3,7 @@
 
 	<color name="main_bg">#ffffffff</color>
 
-	<color name="metro_nor">#ffebebeb</color>
+	<color name="metro_nor">#ffdddddd</color>
 	<color name="metro_pre">#ffaaaaaa</color>
 
 	<color name="main_text">#ff383838</color>

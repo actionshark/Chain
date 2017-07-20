@@ -1,4 +1,4 @@
-package com.as.chain.script;
+package com.as.chain.game;
 
 import org.luaj.vm2.LuaValue;
 
@@ -20,13 +20,6 @@ public class Skill {
 	
 	public boolean init(LuaValue data) {
 		try {
-			name = data.get("name").tojstring();
-			
-			type = data.get("type").toint();
-			LuaValue skillType = Define.getSkillType();
-			typeText = skillType.get(type).get("text").tojstring();
-			
-			desc = data.get("desc").tojstring();
 			
 			return true;
 		} catch (Exception e) {
@@ -34,5 +27,9 @@ public class Skill {
 		}
 		
 		return false;
+	}
+	
+	public boolean initByPath(String path) {
+		return true;
 	}
 }

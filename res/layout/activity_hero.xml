@@ -1,46 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:stone="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/vg_root"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/main_bg"
-    android:orientation="horizontal"
-    android:baselineAligned="false" >
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:stone="http://schemas.android.com/apk/res-auto"
+	android:id="@+id/vg_root"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="@color/main_bg"
+	android:orientation="horizontal"
+	android:baselineAligned="false">
 
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="2"
-        android:orientation="vertical" >
+	<com.as.metro.MetroLayout
+		android:id="@+id/ml_detail"
+		android:layout_width="0dp"
+		android:layout_height="match_parent"
+		android:layout_weight="2"
+		stone:color_pressed="@color/metro_pre"
+		stone:color="@color/metro_nor">
+	</com.as.metro.MetroLayout>
 
-        <com.as.metro.MetroLayout
-            android:id="@+id/ml_userinfo"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            stone:color_pressed="@color/metro_pre"
-            stone:color="@color/metro_nor" >
-        </com.as.metro.MetroLayout>
+	<LinearLayout
+		android:layout_width="0dp"
+		android:layout_height="match_parent"
+		android:layout_weight="3"
+		android:orientation="vertical">
 
-        <com.as.metro.MetroLayout
-            android:id="@+id/ml_hero"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            stone:color_pressed="@color/metro_pre"
-            stone:color="@color/metro_nor" >
-        </com.as.metro.MetroLayout>
-    </LinearLayout>
+		<com.as.metro.MetroLayout
+			android:layout_width="match_parent"
+			android:layout_height="0dp"
+			android:layout_weight="1"
+			stone:color_pressed="@color/metro_pre"
+			stone:color="@color/metro_nor">
 
-    <com.as.metro.MetroLayout
-        android:id="@+id/ml_battle"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        stone:color_pressed="@color/metro_pre"
-        stone:color="@color/metro_nor" >
-    </com.as.metro.MetroLayout>
+			<GridView
+				android:id="@+id/gv_heroes"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:layout_margin="5dp"
+				android:numColumns="4"
+				android:background="@color/main_bg" />
+
+		</com.as.metro.MetroLayout>
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="0dp"
+			android:layout_weight="1"
+			android:orientation="horizontal">
+
+			<com.as.metro.MetroLayout
+				android:id="@+id/ml_lineup"
+				android:layout_width="0dp"
+				android:layout_height="match_parent"
+				android:layout_weight="3"
+				stone:color_pressed="@color/metro_pre"
+				stone:color="@color/metro_nor">
+			</com.as.metro.MetroLayout>
+
+			<LinearLayout
+				android:layout_width="0dp"
+				android:layout_height="match_parent"
+				android:layout_weight="1"
+				android:orientation="vertical">
+				<com.as.metro.MetroLayout
+					android:id="@+id/ml_btn1"
+					android:layout_width="match_parent"
+					android:layout_height="0dp"
+					android:layout_weight="1"
+					stone:color_pressed="@color/metro_pre"
+					stone:color="@color/metro_nor">
+				</com.as.metro.MetroLayout>
+
+				<com.as.metro.MetroLayout
+					android:id="@+id/ml_btn2"
+					android:layout_width="match_parent"
+					android:layout_height="0dp"
+					android:layout_weight="1"
+					stone:color_pressed="@color/metro_pre"
+					stone:color="@color/metro_nor">
+				</com.as.metro.MetroLayout>
+
+				<com.as.metro.MetroLayout
+					android:id="@+id/ml_btn3"
+					android:layout_width="match_parent"
+					android:layout_height="0dp"
+					android:layout_weight="1"
+					stone:color_pressed="@color/metro_pre"
+					stone:color="@color/metro_nor">
+				</com.as.metro.MetroLayout>
+			</LinearLayout>
+		</LinearLayout>
+	</LinearLayout>
 
 </LinearLayout>
