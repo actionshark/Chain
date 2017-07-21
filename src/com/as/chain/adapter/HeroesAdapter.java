@@ -74,7 +74,7 @@ public class HeroesAdapter extends BasicAdapter {
 		vh.name.setText(hero.name);
 		
 		LuaValue countryType = ScriptMgr.getInstance().getGlobal("CountryType").get(hero.country);
-		vh.name.setTextColor(countryType.get("color").toint() & 0xff000000);
+		vh.name.setTextColor(countryType.get("color").toint());
 	}
 	
 	private static class ViewHolder {
