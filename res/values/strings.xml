@@ -1,31 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-	<string name="app_name">Chain</string>
+	<string name="app_name">四国</string>
 
-	<string name="err_nickname_length_limit">Nickname length mast be %1$d-%2$d</string>
-	<string name="err_update_failed">Update Failed, please restart and retry</string>
+	<string name="err_nickname_length_limit">昵称长度必须在%1$d到%2$d之间</string>
+	<string name="err_update_failed">更新失败，新重试</string>
 
-	<string name="msg_checking_update">Checking update, please wait</string>
-	<string name="msg_delete_download_hint">%1$d files will been deleted\n%2$d files will been
-		downloaded
-	</string>
-	<string name="msg_deleting_files">Deleting %1$d/%2$d files\n%3$s</string>
-	<string name="msg_downloading_files">Downloading %1$d/%2$d files\n%3$s</string>
-	<string name="msg_input_nickname">Please input nickname</string>
-	<string name="msg_press_two_times_to_exit">Press two times to exit</string>
-	<string name="msg_update_to_latest_version">Has been update to latest version\nEntering the
-		game
-	</string>
+	<string name="msg_checking_update">检查更新中……</string>
+	<string name="msg_delete_download_hint">%1$d个文件将要被删除\n%2$d个文件将要下载</string>
+	<string name="msg_deleting_files">正在删除  %1$d/%2$d\n%3$s</string>
+	<string name="msg_downloading_files">正在下载 %1$d/%2$d\n%3$s</string>
+	<string name="msg_input_nickname">请输入昵称</string>
+	<string name="msg_press_two_times_to_exit">连按两次退出</string>
+	<string name="msg_update_to_latest_version">已经是最新\n正在进入游戏……</string>
 
-	<string name="wd_battle">Battle</string>
-	<string name="wd_cancel">Cancel</string>
-	<string name="wd_confirm">Confirm</string>
-	<string name="wd_connecting">Connecting</string>
-	<string name="wd_hero">Hero</string>
-	<string name="wd_history">History</string>
-	<string name="wd_ok">OK</string>
-	<string name="wd_offline">Offline</string>
-	<string name="wd_online">Online</string>
-	<string name="wd_unkonwn">Unknown</string>
+	<string name="wd_attack">攻击</string>
+	<string name="wd_battle">战斗</string>
+	<string name="wd_cancel">取消</string>
+	<string name="wd_confirm">确认</string>
+	<string name="wd_connecting">连接中</string>
+	<string name="wd_defence">防御</string>
+	<string name="wd_health">生命</string>
+	<string name="wd_hero">英雄</string>
+	<string name="wd_history">历史</string>
+	<string name="wd_ok">好的</string>
+	<string name="wd_offline">离线</string>
+	<string name="wd_online">在线</string>
+	<string name="wd_unkonwn">未知</string>
 </resources>

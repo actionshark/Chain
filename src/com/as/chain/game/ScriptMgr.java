@@ -3,7 +3,6 @@ package com.as.chain.game;
 import java.io.File;
 import java.text.Collator;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -14,6 +13,8 @@ import org.luaj.vm2.LuaValue;
 import org.luaj.vm2.lib.jse.JsePlatform;
 
 import com.as.chain.util.DataMgr;
+import com.js.log.Level;
+import com.js.log.Logger;
 
 public class ScriptMgr {
 	public static final String TAG = ScriptMgr.class.getSimpleName();
@@ -46,9 +47,12 @@ public class ScriptMgr {
 		return mGlobals;
 	}
 	
-	public LuaValue getCountryType(int id) {
-		LuaValue data = mGlobals.get("CountryType");
-		return data.get(id);
+	public LuaValue getGlobal(String key) {
+		return mGlobals.get(key);
+	}
+	
+	public LuaValue getGlobal(int index) {
+		return mGlobals.get(index);
 	}
 	
 	public List<Hero> getHeroes() {
@@ -59,7 +63,8 @@ public class ScriptMgr {
 		
 		for (File file : files) {
 			LuaValue data = mGlobals.loadfile(file.getAbsolutePath()).call();
-			Hero hero = new Hero();
+			String name = file.getName();
+			Hero hero = new Hero(name.substring(0, name.length() - 4));
 			hero.init(data);
 			heroes.add(hero);
 		}
@@ -73,5 +78,21 @@ public class ScriptMgr {
 		});
 		
 		return heroes;
+	}
+	
+	public Hero getHero(String name) {
+		try {
+			String path = String.format("%ssrc/hero/%s.lua", DataMgr.UPDATE_PATH, name);
+			LuaValue data = mGlobals.loadfile(path).call();
+			Hero hero = new Hero(name);
+			
+			if (hero.init(data)) {
+				return hero;
+			}
+		} catch (Exception e) {
+			Logger.getInstance().print(TAG, Level.E, e);
+		}
+		
+		return null;
 	}
 }

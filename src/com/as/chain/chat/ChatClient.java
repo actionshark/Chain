@@ -38,7 +38,6 @@ public class ChatClient {
 	}
 	
 	public void start() {
-		mClient.start();
 		mClient.setListener(new ITalkClientListener() {
 			@Override
 			public void onConnected(TalkClient client) {
@@ -99,5 +98,7 @@ public class ChatClient {
 				}
 			}
 		});
+		
+		mClient.start();
 	}
 }

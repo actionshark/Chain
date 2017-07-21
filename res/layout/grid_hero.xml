@@ -18,7 +18,7 @@
 			android:layout_width="match_parent"
 			android:layout_height="match_parent"
 			android:gravity="center"
-			android:textSize="@dimen/main_text_large"
+			android:textSize="@dimen/main_text_big"
 			android:textColor="@color/main_text" />
 
 	</LinearLayout>

@@ -9,14 +9,256 @@
 	android:orientation="horizontal"
 	android:baselineAligned="false">
 
-	<com.as.metro.MetroLayout
+	<LinearLayout
 		android:id="@+id/ml_detail"
 		android:layout_width="0dp"
 		android:layout_height="match_parent"
 		android:layout_weight="2"
-		stone:color_pressed="@color/metro_pre"
-		stone:color="@color/metro_nor">
-	</com.as.metro.MetroLayout>
+		android:orientation="vertical">
+		
+	    <com.as.metro.MetroLayout
+	        android:layout_width="match_parent"
+	        android:layout_height="0dp"
+	        android:layout_weight="3"
+	        android:orientation="horizontal"
+			stone:color_pressed="@color/metro_pre"
+			stone:color="@color/metro_nor">
+	        
+			<TextView
+				android:id="@+id/tv_name"
+				android:layout_width="0dp"
+				android:layout_height="match_parent"
+				android:layout_weight="1"
+				android:gravity="center"
+				android:textSize="@dimen/main_text_big"
+				android:textColor="@color/main_text" />
+		    
+		    <LinearLayout
+		        android:layout_width="0dp"
+		        android:layout_height="match_parent"
+		        android:layout_weight="3"
+		        android:orientation="vertical">
+			
+		        <LinearLayout
+			        android:layout_width="match_parent"
+			        android:layout_height="0dp"
+			        android:layout_weight="1"
+			        android:orientation="horizontal">
+			            
+					<TextView
+						android:id="@+id/tv_country"
+						android:layout_width="wrap_content"
+						android:layout_height="match_parent"
+						android:padding="2dp"
+						android:gravity="center"
+						android:textSize="@dimen/main_text_small"
+						android:textColor="@color/main_text" />
+					
+					<TextView
+						android:id="@+id/tv_sex"
+						android:layout_width="wrap_content"
+						android:layout_height="match_parent"
+						android:padding="2dp"
+						android:gravity="center"
+						android:textSize="@dimen/main_text_small"
+						android:textColor="@color/main_text" />
+					
+					<View
+					    android:layout_width="0dp"
+					    android:layout_height="match_parent"
+					    android:layout_weight="1" />
+		        </LinearLayout>
+		        
+				<TextView
+					android:id="@+id/tv_desc"
+					android:layout_width="match_parent"
+					android:layout_height="0dp"
+					android:layout_weight="1"
+					android:padding="2dp"
+					android:gravity="left|center_vertical"
+					android:textSize="@dimen/main_text_small"
+					android:textColor="@color/main_text" />
+		        
+		    </LinearLayout>
+	        
+	    </com.as.metro.MetroLayout>
+	    
+	    <com.as.metro.MetroLayout
+	        android:layout_width="match_parent"
+	        android:layout_height="0dp"
+	        android:layout_weight="5"
+	        android:orientation="vertical"
+			stone:color_pressed="@color/metro_pre"
+			stone:color="@color/metro_nor">
+	    
+		    <LinearLayout
+		        android:id="@+id/ll_health"
+		        android:layout_width="match_parent"
+		        android:layout_height="0dp"
+		        android:layout_weight="1"
+		        android:orientation="horizontal">
+			    
+			    <TextView
+					android:id="@+id/tv_name"
+					android:layout_width="0dp"
+					android:layout_height="match_parent"
+					android:layout_weight="1"
+					android:paddingLeft="10dp"
+					android:gravity="left|center_vertical"
+					android:textSize="@dimen/main_text_small"
+					android:textColor="@color/main_text"
+					android:text="@string/wd_health" />
+			    
+			    <TextView
+					android:id="@+id/tv_value"
+					android:layout_width="0dp"
+					android:layout_height="match_parent"
+					android:layout_weight="1"
+					android:paddingLeft="2dp"
+					android:gravity="left|center_vertical"
+					android:textSize="@dimen/main_text_small"
+					android:textColor="@color/main_text" />
+			    
+			    <SeekBar
+					android:id="@+id/sb_line"
+					android:layout_width="0dp"
+					android:layout_height="match_parent"
+					android:layout_weight="4"
+					android:paddingLeft="2dp"
+					android:paddingRight="10dp"
+					android:progressDrawable="@drawable/seek_bar_health"
+					android:thumb="@null" />
+		        
+			</LinearLayout>
+		    
+		    <LinearLayout
+		        android:id="@+id/ll_attack"
+		        android:layout_width="match_parent"
+		        android:layout_height="0dp"
+		        android:layout_weight="1"
+		        android:orientation="horizontal">
+			    
+			    <TextView
+					android:id="@+id/tv_name"
+					android:layout_width="0dp"
+					android:layout_height="match_parent"
+					android:layout_weight="1"
+					android:paddingLeft="10dp"
+					android:gravity="left|center_vertical"
+					android:textSize="@dimen/main_text_small"
+					android:textColor="@color/main_text"
+					android:text="@string/wd_attack" />
+			    
+			    <TextView
+					android:id="@+id/tv_value"
+					android:layout_width="0dp"
+					android:layout_height="match_parent"
+					android:layout_weight="1"
+					android:paddingLeft="2dp"
+					android:gravity="left|center_vertical"
+					android:textSize="@dimen/main_text_small"
+					android:textColor="@color/main_text" />
+			    
+			    <SeekBar
+					android:id="@+id/sb_line"
+					android:layout_width="0dp"
+					android:layout_height="match_parent"
+					android:layout_weight="4"
+					android:paddingLeft="2dp"
+					android:paddingRight="10dp"
+					android:progressDrawable="@drawable/seek_bar_attack"
+					android:thumb="@null" />
+		        
+			</LinearLayout>
+		    
+		    <LinearLayout
+		        android:id="@+id/ll_defence"
+		        android:layout_width="match_parent"
+		        android:layout_height="0dp"
+		        android:layout_weight="1"
+		        android:orientation="horizontal">
+			    
+			    <TextView
+					android:id="@+id/tv_name"
+					android:layout_width="0dp"
+					android:layout_height="match_parent"
+					android:layout_weight="1"
+					android:paddingLeft="10dp"
+					android:gravity="left|center_vertical"
+					android:textSize="@dimen/main_text_small"
+					android:textColor="@color/main_text"
+					android:text="@string/wd_defence" />
+			    
+			    <TextView
+					android:id="@+id/tv_value"
+					android:layout_width="0dp"
+					android:layout_height="match_parent"
+					android:layout_weight="1"
+					android:paddingLeft="2dp"
+					android:gravity="left|center_vertical"
+					android:textSize="@dimen/main_text_small"
+					android:textColor="@color/main_text" />
+			    
+			    <SeekBar
+					android:id="@+id/sb_line"
+					android:layout_width="0dp"
+					android:layout_height="match_parent"
+					android:layout_weight="4"
+					android:paddingLeft="2dp"
+					android:paddingRight="10dp"
+					android:progressDrawable="@drawable/seek_bar_defence"
+					android:thumb="@null" />
+		        
+			</LinearLayout>
+		
+	    </com.as.metro.MetroLayout>
+		
+	    <com.as.metro.MetroLayout
+	        android:layout_width="match_parent"
+	        android:layout_height="0dp"
+	        android:layout_weight="2"
+	        android:orientation="horizontal"
+			stone:color_pressed="@color/metro_pre"
+			stone:color="@color/metro_nor">
+		</com.as.metro.MetroLayout>
+		
+	    <com.as.metro.MetroLayout
+	        android:layout_width="match_parent"
+	        android:layout_height="0dp"
+	        android:layout_weight="2"
+	        android:orientation="horizontal"
+			stone:color_pressed="@color/metro_pre"
+			stone:color="@color/metro_nor">
+		</com.as.metro.MetroLayout>
+		
+		<com.as.metro.MetroLayout
+	        android:layout_width="match_parent"
+	        android:layout_height="0dp"
+	        android:layout_weight="2"
+	        android:orientation="horizontal"
+			stone:color_pressed="@color/metro_pre"
+			stone:color="@color/metro_nor">
+		</com.as.metro.MetroLayout>
+		
+		<com.as.metro.MetroLayout
+	        android:layout_width="match_parent"
+	        android:layout_height="0dp"
+	        android:layout_weight="2"
+	        android:orientation="horizontal"
+			stone:color_pressed="@color/metro_pre"
+			stone:color="@color/metro_nor">
+		</com.as.metro.MetroLayout>
+		
+		<com.as.metro.MetroLayout
+	        android:layout_width="match_parent"
+	        android:layout_height="0dp"
+	        android:layout_weight="2"
+	        android:orientation="horizontal"
+			stone:color_pressed="@color/metro_pre"
+			stone:color="@color/metro_nor">
+		</com.as.metro.MetroLayout>
+	    
+	</LinearLayout>
 
 	<LinearLayout
 		android:layout_width="0dp"
