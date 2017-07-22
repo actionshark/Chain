@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.luaj.vm2.LuaValue;
 
+import com.as.chain.util.DataMgr;
 import com.js.log.Level;
 import com.js.log.Logger;
 
@@ -61,7 +62,7 @@ public class Hero {
 			for (int i = 1; i <= len; i++) {
 				Skill skill = new Skill();
 				String path = sks.get(i).tojstring();
-				skill.initByPath(path);
+				skill.initByPath(String.format("%ssrc/skill/%s.lua", DataMgr.UPDATE_PATH, path));
 				skills.add(skill);
 			}
 			

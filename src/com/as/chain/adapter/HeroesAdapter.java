@@ -1,6 +1,8 @@
 package com.as.chain.adapter;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.luaj.vm2.LuaValue;
 
@@ -12,17 +14,21 @@ import com.as.chain.game.ScriptMgr;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.View.OnTouchListener;
 import android.widget.TextView;
 
 public class HeroesAdapter extends BasicAdapter {
 	public static interface IOnClickListener {
+		public void onTouch(Hero hero, MotionEvent event);
 		public void onClick(Hero hero);
 	}
 	
 	private final Context mContext;
 	private List<Hero> mDataList;
+	private final Set<String> mSelects = new HashSet<String>();
 	
 	private IOnClickListener mListener;
 	
@@ -32,6 +38,40 @@ public class HeroesAdapter extends BasicAdapter {
 	
 	public void setDataList(List<Hero> dataList) {
 		mDataList = dataList;
+	}
+	
+	public boolean select(Hero hero) {
+		if (mSelects.contains(hero.id)) {
+			return false;
+		} else {
+			mSelects.add(hero.id);
+			notifyDataSetChanged();
+			return true;
+		}
+	}
+	
+	public boolean unselect(Hero hero) {
+		if (hero == null) {
+			if (mSelects.size() > 0) {
+				mSelects.clear();
+				notifyDataSetChanged();
+				return true;
+			} else {
+				return false;
+			}
+		}
+		
+		if (mSelects.contains(hero.id)) {
+			mSelects.remove(hero.id);
+			notifyDataSetChanged();
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	public boolean isSelected(Hero hero) {
+		return mSelects.contains(hero.id);
 	}
 	
 	public void setOnClickListener(IOnClickListener listener) {
@@ -50,7 +90,21 @@ public class HeroesAdapter extends BasicAdapter {
 		final ViewHolder vh = new ViewHolder();
 		view.setTag(vh);
 		
-		view.setOnClickListener(new OnClickListener() {
+		View touch = view.findViewById(R.id.vg_root);
+		
+		touch.setOnTouchListener(new OnTouchListener() {
+			@SuppressLint("ClickableViewAccessibility")
+			@Override
+			public boolean onTouch(View v, MotionEvent event) {
+				if (mListener != null) {
+					mListener.onTouch(vh.hero, event);
+				}
+				
+				return false;
+			}
+		});
+		
+		touch.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				if (mListener != null) {
@@ -73,8 +127,13 @@ public class HeroesAdapter extends BasicAdapter {
 		
 		vh.name.setText(hero.name);
 		
-		LuaValue countryType = ScriptMgr.getInstance().getGlobal("CountryType").get(hero.country);
-		vh.name.setTextColor(countryType.get("color").toint());
+		if (mSelects.contains(hero.id)) {
+			vh.name.setTextColor(0xff000000);
+		} else {
+			LuaValue countryType = ScriptMgr.getInstance()
+				.getGlobal("CountryType").get(hero.country);
+			vh.name.setTextColor(countryType.get("color").toint());
+		}
 	}
 	
 	private static class ViewHolder {

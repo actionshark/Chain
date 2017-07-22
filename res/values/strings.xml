@@ -3,14 +3,18 @@
 
 	<string name="app_name">四国</string>
 
-	<string name="err_nickname_length_limit">昵称长度必须在%1$d到%2$d之间</string>
+	<string name="err_nickname_length_limit">昵称长度必须是%1$d到%2$d</string>
+	<string name="err_lineup_hero_num_limit">上阵人数必须是%1$d到%2$d</string>
 	<string name="err_update_failed">更新失败，新重试</string>
 
 	<string name="msg_checking_update">检查更新中……</string>
+	<string name="msg_cost">消耗:%1$d</string>
 	<string name="msg_delete_download_hint">%1$d个文件将要被删除\n%2$d个文件将要下载</string>
-	<string name="msg_deleting_files">正在删除  %1$d/%2$d\n%3$s</string>
+	<string name="msg_deleting_files">正在删除 %1$d/%2$d\n%3$s</string>
 	<string name="msg_downloading_files">正在下载 %1$d/%2$d\n%3$s</string>
+	<string name="msg_first_cd">进场:%1$d</string>
 	<string name="msg_input_nickname">请输入昵称</string>
+	<string name="msg_repeat_cd">冷却:%1$d</string>
 	<string name="msg_press_two_times_to_exit">连按两次退出</string>
 	<string name="msg_update_to_latest_version">已经是最新\n正在进入游戏……</string>
 

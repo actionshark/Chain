@@ -13,7 +13,7 @@
 		<clip>
 			<shape>
 				<stroke android:width="0dp" />
-				<solid android:color="#ff0000" />
+				<solid android:color="#000000" />
 				<size android:height="8dp" />
 				<corners android:radius="2dp" />
 			</shape>
