@@ -13,7 +13,7 @@
 		android:id="@+id/ml_detail"
 		android:layout_width="0dp"
 		android:layout_height="match_parent"
-		android:layout_weight="2"
+		android:layout_weight="1"
 		android:orientation="vertical">
 
 		<com.as.metro.MetroLayout
@@ -29,7 +29,7 @@
 				android:id="@+id/tv_name"
 				android:layout_width="0dp"
 				android:layout_height="match_parent"
-				android:layout_weight="4"
+				android:layout_weight="3"
 				android:gravity="center"
 				android:textSize="@dimen/main_text_big"
 				android:textColor="@color/main_text" />
@@ -135,14 +135,30 @@
 					android:textSize="@dimen/main_text_small"
 					android:textColor="@color/main_text" />
 
-				<SeekBar
-					android:id="@+id/sb_line"
+				<LinearLayout
 					android:layout_width="0dp"
 					android:layout_height="match_parent"
 					android:layout_weight="4"
-					android:paddingRight="6dp"
-					android:progressDrawable="@drawable/seek_bar_value"
-					android:thumb="@null" />
+					android:orientation="vertical">
+
+					<View
+						android:layout_width="match_parent"
+						android:layout_height="0dp"
+						android:layout_weight="1" />
+
+					<SeekBar
+						android:id="@+id/sb_line"
+						android:layout_width="match_parent"
+						android:layout_height="0dp"
+						android:layout_weight="2"
+						android:progressDrawable="@drawable/seek_bar_value"
+						android:thumb="@null" />
+
+					<View
+						android:layout_width="match_parent"
+						android:layout_height="0dp"
+						android:layout_weight="1" />
+				</LinearLayout>
 
 			</LinearLayout>
 
@@ -175,14 +191,30 @@
 					android:textSize="@dimen/main_text_small"
 					android:textColor="@color/main_text" />
 
-				<SeekBar
-					android:id="@+id/sb_line"
+				<LinearLayout
 					android:layout_width="0dp"
 					android:layout_height="match_parent"
 					android:layout_weight="4"
-					android:paddingRight="6dp"
-					android:progressDrawable="@drawable/seek_bar_value"
-					android:thumb="@null" />
+					android:orientation="vertical">
+
+					<View
+						android:layout_width="match_parent"
+						android:layout_height="0dp"
+						android:layout_weight="1" />
+
+					<SeekBar
+						android:id="@+id/sb_line"
+						android:layout_width="match_parent"
+						android:layout_height="0dp"
+						android:layout_weight="2"
+						android:progressDrawable="@drawable/seek_bar_value"
+						android:thumb="@null" />
+
+					<View
+						android:layout_width="match_parent"
+						android:layout_height="0dp"
+						android:layout_weight="1" />
+				</LinearLayout>
 
 			</LinearLayout>
 
@@ -215,14 +247,30 @@
 					android:textSize="@dimen/main_text_small"
 					android:textColor="@color/main_text" />
 
-				<SeekBar
-					android:id="@+id/sb_line"
+				<LinearLayout
 					android:layout_width="0dp"
 					android:layout_height="match_parent"
 					android:layout_weight="4"
-					android:paddingRight="6dp"
-					android:progressDrawable="@drawable/seek_bar_value"
-					android:thumb="@null" />
+					android:orientation="vertical">
+
+					<View
+						android:layout_width="match_parent"
+						android:layout_height="0dp"
+						android:layout_weight="1" />
+
+					<SeekBar
+						android:id="@+id/sb_line"
+						android:layout_width="match_parent"
+						android:layout_height="0dp"
+						android:layout_weight="2"
+						android:progressDrawable="@drawable/seek_bar_value"
+						android:thumb="@null" />
+
+					<View
+						android:layout_width="match_parent"
+						android:layout_height="0dp"
+						android:layout_weight="1" />
+				</LinearLayout>
 
 			</LinearLayout>
 
@@ -241,8 +289,8 @@
 				android:id="@+id/tv_name"
 				android:layout_width="wrap_content"
 				android:layout_height="match_parent"
-				android:paddingLeft="2dp"
-				android:paddingRight="2dp"
+				android:paddingLeft="4dp"
+				android:paddingRight="4dp"
 				android:gravity="center"
 				android:textSize="@dimen/main_text_big"
 				android:textColor="@color/main_text" />
@@ -316,8 +364,8 @@
 				android:id="@+id/tv_name"
 				android:layout_width="wrap_content"
 				android:layout_height="match_parent"
-				android:paddingLeft="2dp"
-				android:paddingRight="2dp"
+				android:paddingLeft="4dp"
+				android:paddingRight="4dp"
 				android:gravity="center"
 				android:textSize="@dimen/main_text_big"
 				android:textColor="@color/main_text" />
@@ -345,8 +393,8 @@
 				android:id="@+id/tv_name"
 				android:layout_width="wrap_content"
 				android:layout_height="match_parent"
-				android:paddingLeft="2dp"
-				android:paddingRight="2dp"
+				android:paddingLeft="4dp"
+				android:paddingRight="4dp"
 				android:gravity="center"
 				android:textSize="@dimen/main_text_big"
 				android:textColor="@color/main_text" />
@@ -374,8 +422,8 @@
 				android:id="@+id/tv_name"
 				android:layout_width="wrap_content"
 				android:layout_height="match_parent"
-				android:paddingLeft="2dp"
-				android:paddingRight="2dp"
+				android:paddingLeft="4dp"
+				android:paddingRight="4dp"
 				android:gravity="center"
 				android:textSize="@dimen/main_text_big"
 				android:textColor="@color/main_text" />
@@ -395,7 +443,7 @@
 	<FrameLayout
 		android:layout_width="0dp"
 		android:layout_height="match_parent"
-		android:layout_weight="3">
+		android:layout_weight="1">
 
 		<LinearLayout
 			android:layout_width="match_parent"

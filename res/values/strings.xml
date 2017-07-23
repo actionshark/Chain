@@ -17,6 +17,7 @@
 	<string name="msg_repeat_cd">冷却:%1$d</string>
 	<string name="msg_press_two_times_to_exit">连按两次退出</string>
 	<string name="msg_update_to_latest_version">已经是最新\n正在进入游戏……</string>
+	<string name="msg_waiting_rand_battle">等待匹配中\n%1$d</string>
 
 	<string name="wd_attack">攻击</string>
 	<string name="wd_battle">战斗</string>

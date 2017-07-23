@@ -4,6 +4,7 @@ import com.as.chain.R;
 import com.as.chain.chat.ChatClient;
 import com.as.chain.chat.UserInfo;
 import com.as.chain.chat.req.EditNickname;
+import com.as.chain.chat.req.RandBattleReq;
 import com.as.chain.chat.rsp.PushUserInfo;
 import com.as.chain.ui.IDialogClickListener;
 import com.as.chain.ui.InputDialog;
@@ -60,6 +61,14 @@ public class MainActivity extends BaseActivity {
 			public void onClick(View v) {
 				Intent intent = new Intent(MainActivity.this, HeroActivity.class);
 				startActivity(intent);
+			}
+		});
+		
+		findViewById(R.id.ml_battle).setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				RandBattleReq rbr = new RandBattleReq();
+				rbr.send();
 			}
 		});
 		

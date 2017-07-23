@@ -15,6 +15,8 @@ import org.luaj.vm2.LuaValue;
 import org.luaj.vm2.lib.jse.JsePlatform;
 
 import com.as.chain.util.DataMgr;
+import com.js.log.Level;
+import com.js.log.Logger;
 
 public class ScriptMgr {
 	public static final String TAG = ScriptMgr.class.getSimpleName();
@@ -33,6 +35,10 @@ public class ScriptMgr {
 		return sMgr;
 	}
 	
+	public static void print(String str) {
+		Logger.getInstance().print(TAG, Level.I, str);
+	}
+	
 	///////////////////////////////////////////////
 	
 	private final Globals mGlobals;
@@ -43,7 +49,8 @@ public class ScriptMgr {
 	public ScriptMgr() {
 		mGlobals = JsePlatform.standardGlobals();
 		
-		mGlobals.loadfile(DataMgr.UPDATE_PATH + "src/common/define.lua").call();
+		LuaValue main = mGlobals.loadfile(DataMgr.UPDATE_PATH + "src/common/main.lua").call();
+		main.get("init").call(DataMgr.UPDATE_PATH + "src/");
 	}
 	
 	public Globals getGlobals() {

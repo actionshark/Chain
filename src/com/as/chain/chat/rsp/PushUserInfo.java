@@ -15,9 +15,7 @@ public class PushUserInfo extends RspMsg {
 		
 		ui.account = mParams.getString(UserInfo.KEY_ACCOUNT);
 		ui.id = mParams.getInt(UserInfo.KEY_ID);
-		ui.createTime = mParams.getLong(UserInfo.KEY_CREATE_TIME);
 		ui.latestLogin = mParams.getLong(UserInfo.KEY_LATEST_LOGIN);
-		ui.loginTimes = mParams.getInt(UserInfo.KEY_LOGIN_TIMES);
 		
 		if (mParams.has(UserInfo.KEY_NICKNAME)) {
 			ui.nickname = mParams.getString(UserInfo.KEY_NICKNAME);
