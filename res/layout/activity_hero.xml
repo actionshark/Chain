@@ -500,7 +500,7 @@
 							android:layout_margin="1dp"
 							android:gravity="center"
 							android:background="@drawable/btn_rect"
-							android:textSize="@dimen/main_text_big"
+							android:textSize="@dimen/main_text_normal"
 							android:textColor="@color/main_text" />
 
 						<TextView
@@ -511,7 +511,7 @@
 							android:layout_margin="1dp"
 							android:gravity="center"
 							android:background="@drawable/btn_rect"
-							android:textSize="@dimen/main_text_big"
+							android:textSize="@dimen/main_text_normal"
 							android:textColor="@color/main_text" />
 
 						<TextView
@@ -522,7 +522,7 @@
 							android:layout_margin="1dp"
 							android:gravity="center"
 							android:background="@drawable/btn_rect"
-							android:textSize="@dimen/main_text_big"
+							android:textSize="@dimen/main_text_normal"
 							android:textColor="@color/main_text" />
 
 					</LinearLayout>
@@ -544,7 +544,7 @@
 							android:layout_margin="1dp"
 							android:gravity="center"
 							android:background="@drawable/btn_rect"
-							android:textSize="@dimen/main_text_big"
+							android:textSize="@dimen/main_text_normal"
 							android:textColor="@color/main_text" />
 
 						<TextView
@@ -555,7 +555,7 @@
 							android:layout_margin="1dp"
 							android:gravity="center"
 							android:background="@drawable/btn_rect"
-							android:textSize="@dimen/main_text_big"
+							android:textSize="@dimen/main_text_normal"
 							android:textColor="@color/main_text" />
 
 						<TextView
@@ -566,7 +566,7 @@
 							android:layout_margin="1dp"
 							android:gravity="center"
 							android:background="@drawable/btn_rect"
-							android:textSize="@dimen/main_text_big"
+							android:textSize="@dimen/main_text_normal"
 							android:textColor="@color/main_text" />
 
 					</LinearLayout>
@@ -589,7 +589,7 @@
 							android:layout_margin="1dp"
 							android:gravity="center"
 							android:background="@drawable/btn_rect"
-							android:textSize="@dimen/main_text_big"
+							android:textSize="@dimen/main_text_normal"
 							android:textColor="@color/main_text" />
 
 						<TextView
@@ -600,7 +600,7 @@
 							android:layout_margin="1dp"
 							android:gravity="center"
 							android:background="@drawable/btn_rect"
-							android:textSize="@dimen/main_text_big"
+							android:textSize="@dimen/main_text_normal"
 							android:textColor="@color/main_text" />
 
 						<TextView
@@ -611,7 +611,7 @@
 							android:layout_margin="1dp"
 							android:gravity="center"
 							android:background="@drawable/btn_rect"
-							android:textSize="@dimen/main_text_big"
+							android:textSize="@dimen/main_text_normal"
 							android:textColor="@color/main_text" />
 
 					</LinearLayout>
