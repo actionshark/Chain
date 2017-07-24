@@ -10,6 +10,8 @@ import com.js.log.Logger;
 import com.js.talk.ITalkClientListener;
 import com.js.talk.TalkClient;
 
+import android.os.Build;
+
 public class ChatClient {
 	public static final String TAG = ChatClient.class.getSimpleName();
 	
@@ -52,6 +54,8 @@ public class ChatClient {
 				
 				Login login = new Login();
 				login.account = App.getDeviceId();
+				login.deviceName = String.valueOf(Build.MANUFACTURER)
+						+ " " + String.valueOf(Build.MODEL);
 				login.send();
 			}
 
