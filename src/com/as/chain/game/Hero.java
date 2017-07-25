@@ -21,6 +21,8 @@ public class Hero {
 	public final String id;
 	
 	public String name;
+	public String desc;
+	
 	public int country;
 	public int sex;
 	
@@ -37,6 +39,8 @@ public class Hero {
 	public boolean init(LuaValue data) {
 		try {
 			name = data.get("name").tojstring();
+			desc = data.get("desc").tojstring();
+			
 			country = data.get("country").toint();
 			sex = data.get("sex").toint();
 			

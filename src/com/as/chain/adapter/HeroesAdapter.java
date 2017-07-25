@@ -4,12 +4,10 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import org.luaj.vm2.LuaValue;
-
 import com.as.app.BasicAdapter;
 import com.as.chain.R;
+import com.as.chain.game.Define.Country;
 import com.as.chain.game.Hero;
-import com.as.chain.game.ScriptMgr;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -130,9 +128,8 @@ public class HeroesAdapter extends BasicAdapter {
 		if (mSelects.contains(hero.id)) {
 			vh.name.setTextColor(0xff000000);
 		} else {
-			LuaValue countryType = ScriptMgr.getInstance()
-				.getGlobal("CountryType").get(hero.country);
-			vh.name.setTextColor(countryType.get("color").toint());
+			Country country = Country.values()[hero.country];
+			vh.name.setTextColor(country.color);
 		}
 	}
 	

@@ -3,8 +3,6 @@ package com.as.chain.activity;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.luaj.vm2.LuaValue;
-
 import com.as.app.Res;
 import com.as.app.Setting;
 import com.as.chain.R;
@@ -15,6 +13,9 @@ import com.as.chain.game.Lineup;
 import com.as.chain.game.Lineup.Node;
 import com.as.chain.game.ScriptMgr;
 import com.as.chain.game.Skill;
+import com.as.chain.game.Define.Country;
+import com.as.chain.game.Define.Sex;
+import com.as.chain.game.Define.SkillType;
 import com.as.chain.util.Const;
 
 import android.annotation.SuppressLint;
@@ -192,15 +193,13 @@ public class HeroActivity extends BaseActivity {
 		
 		mTvHeroName.setText(hero.name);
 		
-		LuaValue countryType = ScriptMgr.getInstance()
-			.getGlobal("CountryType").get(hero.country);
-		mTvCountry.setText(countryType.get("text").tojstring());
+		Country country = Country.values()[hero.country];
+		mTvCountry.setText(country.text);
 		
-		LuaValue sexType = ScriptMgr.getInstance()
-			.getGlobal("SexType").get(hero.sex);
-		mTvSex.setText(sexType.get("text").tojstring());
+		Sex sex = Sex.values()[hero.sex];
+		mTvSex.setText(sex.text);
 		
-		mTvHeroDesc.setText("此处是预留空间");
+		mTvHeroDesc.setText(hero.desc);
 		
 		((TextView) mViewHealth.findViewById(R.id.tv_value))
 			.setText(String.valueOf(hero.health));
@@ -221,12 +220,9 @@ public class HeroActivity extends BaseActivity {
 			View view = mViewSkills[i];
 			Skill skill = hero.skills.get(i);
 			
-			LuaValue type = ScriptMgr.getInstance()
-				.getGlobal("SkillType").get(skill.type);
-			
-			String typeText = type.get("text").tojstring();
+			SkillType type = SkillType.values()[skill.type];
 			((TextView) view.findViewById(R.id.tv_name))
-				.setText(typeText.substring(0, 1));
+				.setText(type.text);
 			
 			if (skill.cost != -1) {
 				((TextView) view.findViewById(R.id.tv_cost))
@@ -255,9 +251,8 @@ public class HeroActivity extends BaseActivity {
 		}
 		
 		mTvDragHero.setText(mDragHero.name);
-		LuaValue countryType = ScriptMgr.getInstance()
-			.getGlobal("CountryType").get(mDragHero.country);
-		mTvDragHero.setTextColor(countryType.get("color").toint());
+		Country country = Country.values()[mDragHero.country];
+		mTvDragHero.setTextColor(country.color);
 		
 		android.widget.AbsoluteLayout.LayoutParams lp =
 			(android.widget.AbsoluteLayout.LayoutParams)
