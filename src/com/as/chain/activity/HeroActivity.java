@@ -13,6 +13,7 @@ import com.as.chain.game.Lineup;
 import com.as.chain.game.Lineup.Node;
 import com.as.chain.game.ScriptMgr;
 import com.as.chain.game.Skill;
+import com.as.chain.ui.ProgressBar;
 import com.as.chain.game.Define.Country;
 import com.as.chain.game.Define.Sex;
 import com.as.chain.game.Define.SkillType;
@@ -25,7 +26,6 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnTouchListener;
 import android.widget.GridView;
-import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -103,31 +103,8 @@ public class HeroActivity extends BaseActivity {
 		mTvHeroDesc = (TextView) parent.findViewById(R.id.tv_desc);
 		
 		mViewHealth = detail.findViewById(R.id.ll_health);
-		SeekBar line = (SeekBar) mViewHealth.findViewById(R.id.sb_line);
-		line.setOnTouchListener(new OnTouchListener() {
-			@Override
-			public boolean onTouch(View v, MotionEvent event) {
-				return true;
-			}
-		});
-		
 		mViewAttack = detail.findViewById(R.id.ll_attack);
-		line = (SeekBar) mViewAttack.findViewById(R.id.sb_line);
-		line.setOnTouchListener(new OnTouchListener() {
-			@Override
-			public boolean onTouch(View v, MotionEvent event) {
-				return true;
-			}
-		});
-		
 		mViewDefence = detail.findViewById(R.id.ll_defence);
-		line = (SeekBar) mViewDefence.findViewById(R.id.sb_line);
-		line.setOnTouchListener(new OnTouchListener() {
-			@Override
-			public boolean onTouch(View v, MotionEvent event) {
-				return true;
-			}
-		});
 		
 		for (int i = 0; i < mViewSkills.length; i++) {
 			int resId = Res.getIdId("ml_skill_" + (i + 1));
@@ -203,18 +180,18 @@ public class HeroActivity extends BaseActivity {
 		
 		((TextView) mViewHealth.findViewById(R.id.tv_value))
 			.setText(String.valueOf(hero.health));
-		((SeekBar) mViewHealth.findViewById(R.id.sb_line))
-			.setProgress(hero.health * 100 / Hero.getHealthMax());
+		((ProgressBar) mViewHealth.findViewById(R.id.pb_line))
+			.setProgress(hero.health / Hero.getHealthMax());
 		
 		((TextView) mViewAttack.findViewById(R.id.tv_value))
 			.setText(String.valueOf(hero.attack));
-		((SeekBar) mViewAttack.findViewById(R.id.sb_line))
-			.setProgress(hero.attack * 100 / Hero.getAttackMax());
+		((ProgressBar) mViewAttack.findViewById(R.id.pb_line))
+			.setProgress(hero.attack / Hero.getAttackMax());
 		
 		((TextView) mViewDefence.findViewById(R.id.tv_value))
 			.setText(String.valueOf(hero.defence));
-		((SeekBar) mViewDefence.findViewById(R.id.sb_line))
-			.setProgress(hero.defence * 100 / Hero.getDefenceMax());
+		((ProgressBar) mViewDefence.findViewById(R.id.pb_line))
+			.setProgress(hero.defence / Hero.getDefenceMax());
 		
 		for (int i = 0; i < mViewSkills.length; i++) {
 			View view = mViewSkills[i];

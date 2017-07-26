@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:stone="http://schemas.android.com/apk/res-auto"
+	android:id="@+id/vg_root"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="@color/main_bg"
+	android:orientation="horizontal"
+	android:baselineAligned="false">
+
+	<LinearLayout
+		android:id="@+id/ll_left_health"
+		android:layout_width="0dp"
+		android:layout_height="match_parent"
+		android:layout_weight="1"
+		android:orientation="vertical">
+
+		<com.as.metro.MetroLayout
+			android:layout_width="match_parent"
+			android:layout_height="0dp"
+			android:layout_weight="1"
+			stone:color_pressed="@color/metro_pre"
+			stone:color="@color/metro_nor">
+		</com.as.metro.MetroLayout>
+
+		<com.as.metro.MetroLayout
+			android:layout_width="match_parent"
+			android:layout_height="0dp"
+			android:layout_weight="1"
+			stone:color_pressed="@color/metro_pre"
+			stone:color="@color/metro_nor">
+		</com.as.metro.MetroLayout>
+	</LinearLayout>
+
+	<LinearLayout
+		android:id="@+id/ll_left_magic"
+		android:layout_width="0dp"
+		android:layout_height="match_parent"
+		android:layout_weight="1"
+		android:orientation="vertical">
+
+		<com.as.metro.MetroLayout
+			android:layout_width="match_parent"
+			android:layout_height="0dp"
+			android:layout_weight="1"
+			stone:color_pressed="@color/metro_pre"
+			stone:color="@color/metro_nor">
+		</com.as.metro.MetroLayout>
+
+		<com.as.metro.MetroLayout
+			android:layout_width="match_parent"
+			android:layout_height="0dp"
+			android:layout_weight="1"
+			stone:color_pressed="@color/metro_pre"
+			stone:color="@color/metro_nor">
+		</com.as.metro.MetroLayout>
+	</LinearLayout>
+
+	<FrameLayout
+		android:layout_width="0dp"
+		android:layout_height="match_parent"
+		android:layout_weight="8">
+
+		<com.as.metro.MetroLayout
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			stone:color_pressed="@color/metro_pre"
+			stone:color="@color/metro_nor">
+		</com.as.metro.MetroLayout>
+
+	</FrameLayout>
+
+	<LinearLayout
+		android:id="@+id/ll_right_health"
+		android:layout_width="0dp"
+		android:layout_height="match_parent"
+		android:layout_weight="1"
+		android:orientation="vertical">
+
+		<com.as.metro.MetroLayout
+			android:layout_width="match_parent"
+			android:layout_height="0dp"
+			android:layout_weight="1"
+			stone:color_pressed="@color/metro_pre"
+			stone:color="@color/metro_nor">
+		</com.as.metro.MetroLayout>
+
+		<com.as.metro.MetroLayout
+			android:layout_width="match_parent"
+			android:layout_height="0dp"
+			android:layout_weight="1"
+			stone:color_pressed="@color/metro_pre"
+			stone:color="@color/metro_nor">
+		</com.as.metro.MetroLayout>
+	</LinearLayout>
+
+	<LinearLayout
+		android:id="@+id/ll_right_magic"
+		android:layout_width="0dp"
+		android:layout_height="match_parent"
+		android:layout_weight="1"
+		android:orientation="vertical">
+
+		<com.as.metro.MetroLayout
+			android:layout_width="match_parent"
+			android:layout_height="0dp"
+			android:layout_weight="1"
+			stone:color_pressed="@color/metro_pre"
+			stone:color="@color/metro_nor">
+		</com.as.metro.MetroLayout>
+
+		<com.as.metro.MetroLayout
+			android:layout_width="match_parent"
+			android:layout_height="0dp"
+			android:layout_weight="1"
+			stone:color_pressed="@color/metro_pre"
+			stone:color="@color/metro_nor">
+		</com.as.metro.MetroLayout>
+	</LinearLayout>
+
+	<LinearLayout
+		android:id="@+id/ll_skill"
+		android:layout_width="0dp"
+		android:layout_height="match_parent"
+		android:layout_weight="1.5"
+		android:orientation="vertical">
+
+		<com.as.metro.MetroLayout
+			android:layout_width="match_parent"
+			android:layout_height="0dp"
+			android:layout_weight="1"
+			stone:color_pressed="@color/metro_pre"
+			stone:color="@color/metro_nor">
+		</com.as.metro.MetroLayout>
+
+		<com.as.metro.MetroLayout
+			android:layout_width="match_parent"
+			android:layout_height="0dp"
+			android:layout_weight="1"
+			stone:color_pressed="@color/metro_pre"
+			stone:color="@color/metro_nor">
+		</com.as.metro.MetroLayout>
+
+		<com.as.metro.MetroLayout
+			android:layout_width="match_parent"
+			android:layout_height="0dp"
+			android:layout_weight="1"
+			stone:color_pressed="@color/metro_pre"
+			stone:color="@color/metro_nor">
+		</com.as.metro.MetroLayout>
+
+		<com.as.metro.MetroLayout
+			android:layout_width="match_parent"
+			android:layout_height="0dp"
+			android:layout_weight="1"
+			stone:color_pressed="@color/metro_pre"
+			stone:color="@color/metro_nor">
+		</com.as.metro.MetroLayout>
+	</LinearLayout>
+
+</LinearLayout>

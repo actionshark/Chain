@@ -3,7 +3,6 @@ package com.as.chain.activity;
 import java.util.concurrent.Semaphore;
 
 import org.luaj.vm2.Globals;
-import org.luaj.vm2.LuaTable;
 import org.luaj.vm2.LuaValue;
 import org.luaj.vm2.lib.ThreeArgFunction;
 
@@ -79,50 +78,8 @@ public class MainActivity extends BaseActivity {
 		findViewById(R.id.ml_battle).setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				// RandBattleReq rbr = new RandBattleReq();
-				// rbr.send();
-				
-				ThreadUtil.getVice().run(new Runnable() {
-					@Override
-					public void run() {
-						Globals globals = ScriptMgr.getInstance().getGlobals();
-						
-						LuaValue params = globals.loadfile(DataMgr.UPDATE_PATH + "src/battle/test.lua").call();
-						params.set("listener", new ThreeArgFunction() {
-							@Override
-							public LuaValue call(LuaValue momentType, LuaValue momentPhase, LuaValue data) {
-								Logger.getInstance().print(TAG, Level.D, momentType, momentPhase);
-								
-								if (data.isnil() == false) {
-									LuaValue src = data.get("src_hero");
-									if (src.isnil() == false) {
-										Logger.getInstance().print(TAG, Level.D, "src", src.get("name"));
-									}
-									
-									LuaValue dst_heroes = data.get("dst_heroes");
-									if (dst_heroes.isnil() == false) {
-										LuaValue dst = dst_heroes.get(1);
-										if (dst.isnil() == false) {
-											Logger.getInstance().print(TAG, Level.D, "dst", dst.get("name"), dst.get("cur_health"));
-										}
-									}
-								}
-								
-								try {
-									mSema.acquire();
-								} catch (Exception e) {
-									Logger.getInstance().print(TAG, Level.E, e);
-								}
-								
-								return null;
-							}
-						});
-						
-						LuaValue bt = globals.loadfile(DataMgr.UPDATE_PATH + "src/battle/battle.lua").call();
-						LuaValue battle = bt.get("new").call(params);
-						battle.get("start").call(battle);
-					}
-				});
+				Intent intent = new Intent(MainActivity.this, BattleActivity.class);
+				startActivity(intent);
 			}
 		});
 		
