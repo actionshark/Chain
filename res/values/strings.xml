@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-	<string name="app_name">四国</string>
+	<string name="app_name">三国</string>
 
 	<string name="err_nickname_length_limit">昵称长度必须是%1$d到%2$d</string>
 	<string name="err_lineup_hero_num_limit">上阵人数必须是%1$d到%2$d</string>

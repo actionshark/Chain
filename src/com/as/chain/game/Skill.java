@@ -13,7 +13,7 @@ public class Skill {
 	public int type;
 	public String desc;
 	
-	public int cost = -1;
+	public int magicCost = -1;
 	public int firstCd = -1;
 	public int repeatCd = -1;
 	
@@ -26,11 +26,11 @@ public class Skill {
 			type = data.get("type").toint();
 			desc = data.get("desc").tojstring();
 			
-			LuaValue temp = data.get("cost");
+			LuaValue temp = data.get("magic_cost");
 			if (temp.isnil()) {
-				cost = -1;
+				magicCost = -1;
 			} else {
-				cost = temp.toint();
+				magicCost = temp.toint();
 			}
 			
 			temp = data.get("first_cd");

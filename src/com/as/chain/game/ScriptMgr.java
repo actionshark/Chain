@@ -11,6 +11,8 @@ import java.util.Locale;
 import java.util.Map;
 
 import org.luaj.vm2.Globals;
+import org.luaj.vm2.LuaString;
+import org.luaj.vm2.LuaTable;
 import org.luaj.vm2.LuaValue;
 import org.luaj.vm2.lib.jse.JsePlatform;
 
@@ -37,6 +39,43 @@ public class ScriptMgr {
 	
 	public static void print(String str) {
 		Logger.getInstance().print(TAG, Level.I, str);
+	}
+	
+	public static String toString(LuaValue lv, int depth) {
+		return toString(lv, depth, 0);
+	}
+	
+	private static String toString(LuaValue lv, int depth, int padding) {
+		if (depth > 0 && lv instanceof LuaTable) {
+			LuaTable lt = (LuaTable) lv;
+			LuaValue[] keys = lt.keys();
+
+			StringBuilder sb = new StringBuilder();
+			for (int i = 0; i < padding; i++) {
+				sb.append("  ");
+			}
+			String tabEnd = sb.toString();
+			String tab = sb.append("  ").toString();
+			
+			sb.setLength(0);
+			sb.append("{\n");
+			
+			for (LuaValue key : keys) {
+				LuaValue value = lt.get(key);
+				
+				sb.append(tab).append(key).append(" = ")
+					.append(toString(value, depth - 1, padding + 1))
+					.append('\n');
+			}
+			
+			sb.append(tabEnd).append("}");
+			
+			return sb.toString();
+		} else if (lv instanceof LuaString) {
+			return String.format("\"%s\"", lv.tojstring());
+		} else {
+			return String.valueOf(lv);
+		}
 	}
 	
 	///////////////////////////////////////////////

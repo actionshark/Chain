@@ -1,16 +1,26 @@
 package com.as.chain.activity;
 
+import java.util.concurrent.Semaphore;
+
+import org.luaj.vm2.Globals;
+import org.luaj.vm2.LuaTable;
+import org.luaj.vm2.LuaValue;
+import org.luaj.vm2.lib.ThreeArgFunction;
+
 import com.as.chain.R;
 import com.as.chain.chat.ChatClient;
 import com.as.chain.chat.UserInfo;
 import com.as.chain.chat.req.EditNickname;
-import com.as.chain.chat.req.RandBattleReq;
 import com.as.chain.chat.rsp.PushUserInfo;
+import com.as.chain.game.ScriptMgr;
 import com.as.chain.ui.IDialogClickListener;
 import com.as.chain.ui.InputDialog;
 import com.as.chain.util.DataMgr;
 import com.js.event.BrcstMgr;
 import com.js.event.IBrcstListener;
+import com.js.log.Level;
+import com.js.log.Logger;
+import com.js.thread.ThreadUtil;
 
 import android.app.Dialog;
 import android.content.Intent;
@@ -30,6 +40,8 @@ public class MainActivity extends BaseActivity {
 	private boolean mNoNnHint = false;
 	
 	private TextView mTvStatus;
+	
+	private final Semaphore mSema = new Semaphore(0);
 	
 	private IBrcstListener mListener = new IBrcstListener() {
 		@Override
@@ -67,8 +79,57 @@ public class MainActivity extends BaseActivity {
 		findViewById(R.id.ml_battle).setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				RandBattleReq rbr = new RandBattleReq();
-				rbr.send();
+				// RandBattleReq rbr = new RandBattleReq();
+				// rbr.send();
+				
+				ThreadUtil.getVice().run(new Runnable() {
+					@Override
+					public void run() {
+						Globals globals = ScriptMgr.getInstance().getGlobals();
+						
+						LuaValue params = globals.loadfile(DataMgr.UPDATE_PATH + "src/battle/test.lua").call();
+						params.set("listener", new ThreeArgFunction() {
+							@Override
+							public LuaValue call(LuaValue momentType, LuaValue momentPhase, LuaValue data) {
+								Logger.getInstance().print(TAG, Level.D, momentType, momentPhase);
+								
+								if (data.isnil() == false) {
+									LuaValue src = data.get("src_hero");
+									if (src.isnil() == false) {
+										Logger.getInstance().print(TAG, Level.D, "src", src.get("name"));
+									}
+									
+									LuaValue dst_heroes = data.get("dst_heroes");
+									if (dst_heroes.isnil() == false) {
+										LuaValue dst = dst_heroes.get(1);
+										if (dst.isnil() == false) {
+											Logger.getInstance().print(TAG, Level.D, "dst", dst.get("name"), dst.get("cur_health"));
+										}
+									}
+								}
+								
+								try {
+									mSema.acquire();
+								} catch (Exception e) {
+									Logger.getInstance().print(TAG, Level.E, e);
+								}
+								
+								return null;
+							}
+						});
+						
+						LuaValue bt = globals.loadfile(DataMgr.UPDATE_PATH + "src/battle/battle.lua").call();
+						LuaValue battle = bt.get("new").call(params);
+						battle.get("start").call(battle);
+					}
+				});
+			}
+		});
+		
+		findViewById(R.id.ml_history).setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				mSema.release();
 			}
 		});
 		

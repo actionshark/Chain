@@ -224,9 +224,9 @@ public class HeroActivity extends BaseActivity {
 			((TextView) view.findViewById(R.id.tv_name))
 				.setText(type.text);
 			
-			if (skill.cost != -1) {
+			if (skill.magicCost != -1) {
 				((TextView) view.findViewById(R.id.tv_cost))
-					.setText(getString(R.string.msg_cost, skill.cost));
+					.setText(getString(R.string.msg_cost, skill.magicCost));
 			}
 			
 			if (skill.firstCd != -1) {
