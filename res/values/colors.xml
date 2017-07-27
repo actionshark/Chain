@@ -7,5 +7,8 @@
 	<color name="metro_pre">#ffaaaaaa</color>
 
 	<color name="main_text">#ff383838</color>
+	
+	<color name="health_bar_start">#ffff0000</color>
+	<color name="health_bar_end">#ff00bb00</color>
 
 </resources>

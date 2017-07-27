@@ -21,7 +21,7 @@ public class ProgressBar extends View {
 	private int mStartColor = 0xff000000;
 	private int mEndColor = 0xff000000;
 	
-	private float mProgress = 0f;
+	private float mProgress = 1f;
 	
 	public ProgressBar(Context context, AttributeSet attrs) {
 		super(context, attrs);

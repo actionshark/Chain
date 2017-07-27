@@ -2,24 +2,16 @@ package com.as.chain.activity;
 
 import java.util.concurrent.Semaphore;
 
-import org.luaj.vm2.Globals;
-import org.luaj.vm2.LuaValue;
-import org.luaj.vm2.lib.ThreeArgFunction;
-
 import com.as.chain.R;
 import com.as.chain.chat.ChatClient;
 import com.as.chain.chat.UserInfo;
 import com.as.chain.chat.req.EditNickname;
 import com.as.chain.chat.rsp.PushUserInfo;
-import com.as.chain.game.ScriptMgr;
 import com.as.chain.ui.IDialogClickListener;
 import com.as.chain.ui.InputDialog;
 import com.as.chain.util.DataMgr;
 import com.js.event.BrcstMgr;
 import com.js.event.IBrcstListener;
-import com.js.log.Level;
-import com.js.log.Logger;
-import com.js.thread.ThreadUtil;
 
 import android.app.Dialog;
 import android.content.Intent;

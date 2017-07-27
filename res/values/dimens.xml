@@ -5,4 +5,7 @@
 	<dimen name="main_text_normal">21sp</dimen>
 	<dimen name="main_text_small">17sp</dimen>
 	<dimen name="main_text_tiny">13sp</dimen>
+	
+	<dimen name="magic_node_margin_hor">5dp</dimen>
+	<dimen name="magic_node_margin_ver">2dp</dimen>
 </resources>
