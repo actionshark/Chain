@@ -48,6 +48,10 @@ public class Lineup {
 	}
 	
 	public static void saveData(List<Node> heroes) {
+		saveData(loadIndex(), heroes);
+	}
+	
+	public static void saveData(int index, List<Node> heroes) {
 		try {
 			JSONArray ja = new JSONArray();
 			
@@ -60,7 +64,7 @@ public class Lineup {
 			}
 			
 			Setting.getInstance().setString(
-				String.format(KEY_LINEUP_DATA, loadIndex()),
+				String.format(KEY_LINEUP_DATA, index),
 				ja.toString());
 		} catch (Exception e) {
 			Logger.getInstance().print(TAG, Level.E, e);
@@ -68,12 +72,16 @@ public class Lineup {
 	}
 	
 	public static List<Node> loadData() {
+		return loadData(loadIndex());
+	}
+	
+	public static List<Node> loadData(int index) {
 		List<Node> heroes = new ArrayList<Node>();
 		Set<Integer> posSet = new HashSet<Integer>();
 		Set<String> heroSet = new HashSet<String>();
 		
 		String str = Setting.getInstance().getString(
-			String.format(KEY_LINEUP_DATA, loadIndex()));
+			String.format(KEY_LINEUP_DATA, index));
 		
 		if (str != null) {
 			try {

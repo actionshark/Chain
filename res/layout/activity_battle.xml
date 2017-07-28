@@ -29,6 +29,7 @@
 			stone:color="@color/metro_nor">
 			
 			<com.as.chain.ui.ProgressBar
+			    android:id="@+id/pb_health_1_1"
 				android:layout_width="match_parent"
 				android:layout_height="match_parent"
 				android:paddingLeft="5dp"
@@ -41,6 +42,7 @@
 		</com.as.metro.MetroLayout>
 
 		<com.as.metro.MetroLayout
+			android:id="@+id/ml_magic_1_1"
 			android:layout_width="0dp"
 			android:layout_height="match_parent"
 			android:layout_weight="1"
@@ -54,6 +56,7 @@
 		        android:layout_height="3dp" />
 			
 		    <View
+		        android:id="@+id/view_node_10"
 		        android:layout_width="match_parent"
 		        android:layout_height="0dp"
 		        android:layout_weight="1"
@@ -64,6 +67,7 @@
 		        android:background="@drawable/magic_node" />
 			
 		    <View
+		        android:id="@+id/view_node_9"
 		        android:layout_width="match_parent"
 		        android:layout_height="0dp"
 		        android:layout_weight="1"
@@ -74,6 +78,7 @@
 		        android:background="@drawable/magic_node" />
 			
 		    <View
+		        android:id="@+id/view_node_8"
 		        android:layout_width="match_parent"
 		        android:layout_height="0dp"
 		        android:layout_weight="1"
@@ -84,6 +89,7 @@
 		        android:background="@drawable/magic_node" />
 			
 		    <View
+		        android:id="@+id/view_node_7"
 		        android:layout_width="match_parent"
 		        android:layout_height="0dp"
 		        android:layout_weight="1"
@@ -94,6 +100,7 @@
 		        android:background="@drawable/magic_node" />
 			
 		    <View
+		        android:id="@+id/view_node_6"
 		        android:layout_width="match_parent"
 		        android:layout_height="0dp"
 		        android:layout_weight="1"
@@ -104,6 +111,7 @@
 		        android:background="@drawable/magic_node" />
 			
 		    <View
+		        android:id="@+id/view_node_5"
 		        android:layout_width="match_parent"
 		        android:layout_height="0dp"
 		        android:layout_weight="1"
@@ -114,6 +122,7 @@
 		        android:background="@drawable/magic_node" />
 			
 		    <View
+		        android:id="@+id/view_node_4"
 		        android:layout_width="match_parent"
 		        android:layout_height="0dp"
 		        android:layout_weight="1"
@@ -124,6 +133,7 @@
 		        android:background="@drawable/magic_node" />
 			
 		    <View
+		        android:id="@+id/view_node_3"
 		        android:layout_width="match_parent"
 		        android:layout_height="0dp"
 		        android:layout_weight="1"
@@ -134,6 +144,7 @@
 		        android:background="@drawable/magic_node" />
 			
 		    <View
+		        android:id="@+id/view_node_2"
 		        android:layout_width="match_parent"
 		        android:layout_height="0dp"
 		        android:layout_weight="1"
@@ -144,6 +155,7 @@
 		        android:background="@drawable/magic_node" />
 			
 		    <View
+		        android:id="@+id/view_node_1"
 		        android:layout_width="match_parent"
 		        android:layout_height="0dp"
 		        android:layout_weight="1"
@@ -169,6 +181,7 @@
 				android:orientation="horizontal">
 	
 				<com.as.metro.MetroLayout
+				    android:id="@+id/ml_grids_1_1"
 					android:layout_width="0dp"
 					android:layout_height="match_parent"
 					android:layout_weight="3"
@@ -186,7 +199,7 @@
 						android:background="@color/main_bg">
 
 						<View
-							android:id="@+id/tv_grid_7"
+							android:id="@+id/view_grid_7"
 							android:layout_width="match_parent"
 							android:layout_height="0dp"
 							android:layout_weight="1"
@@ -194,7 +207,7 @@
 							android:background="@drawable/btn_rect" />
 
 						<View
-							android:id="@+id/tv_grid_8"
+							android:id="@+id/view_grid_8"
 							android:layout_width="match_parent"
 							android:layout_height="0dp"
 							android:layout_weight="1"
@@ -202,7 +215,7 @@
 							android:background="@drawable/btn_rect" />
 
 						<View
-							android:id="@+id/tv_grid_9"
+							android:id="@+id/view_grid_9"
 							android:layout_width="match_parent"
 							android:layout_height="0dp"
 							android:layout_weight="1"
@@ -221,7 +234,7 @@
 						android:background="@color/main_bg">
 
 						<View
-							android:id="@+id/tv_grid_4"
+							android:id="@+id/view_grid_4"
 							android:layout_width="match_parent"
 							android:layout_height="0dp"
 							android:layout_weight="1"
@@ -229,7 +242,7 @@
 							android:background="@drawable/btn_rect" />
 
 						<View
-							android:id="@+id/tv_grid_5"
+							android:id="@+id/view_grid_5"
 							android:layout_width="match_parent"
 							android:layout_height="0dp"
 							android:layout_weight="1"
@@ -237,7 +250,7 @@
 							android:background="@drawable/btn_rect" />
 
 						<View
-							android:id="@+id/tv_grid_6"
+							android:id="@+id/view_grid_6"
 							android:layout_width="match_parent"
 							android:layout_height="0dp"
 							android:layout_weight="1"
@@ -257,7 +270,7 @@
 						android:background="@color/main_bg">
 
 						<View
-							android:id="@+id/tv_grid_1"
+							android:id="@+id/view_grid_1"
 							android:layout_width="match_parent"
 							android:layout_height="0dp"
 							android:layout_weight="1"
@@ -265,7 +278,7 @@
 							android:background="@drawable/btn_rect" />
 
 						<View
-							android:id="@+id/tv_grid_2"
+							android:id="@+id/view_grid_2"
 							android:layout_width="match_parent"
 							android:layout_height="0dp"
 							android:layout_weight="1"
@@ -273,7 +286,7 @@
 							android:background="@drawable/btn_rect" />
 
 						<View
-							android:id="@+id/tv_grid_3"
+							android:id="@+id/view_grid_3"
 							android:layout_width="match_parent"
 							android:layout_height="0dp"
 							android:layout_weight="1"
@@ -289,6 +302,7 @@
 			       	android:layout_weight="1"/>
 		
 				<com.as.metro.MetroLayout
+				    android:id="@+id/ml_grids_2_1"
 					android:layout_width="0dp"
 					android:layout_height="match_parent"
 					android:layout_weight="3"
@@ -306,7 +320,7 @@
 						android:background="@color/main_bg">
 
 						<View
-							android:id="@+id/tv_grid_1"
+							android:id="@+id/view_grid_1"
 							android:layout_width="match_parent"
 							android:layout_height="0dp"
 							android:layout_weight="1"
@@ -314,7 +328,7 @@
 							android:background="@drawable/btn_rect" />
 
 						<View
-							android:id="@+id/tv_grid_2"
+							android:id="@+id/view_grid_2"
 							android:layout_width="match_parent"
 							android:layout_height="0dp"
 							android:layout_weight="1"
@@ -322,7 +336,7 @@
 							android:background="@drawable/btn_rect" />
 
 						<View
-							android:id="@+id/tv_grid_3"
+							android:id="@+id/view_grid_3"
 							android:layout_width="match_parent"
 							android:layout_height="0dp"
 							android:layout_weight="1"
@@ -341,7 +355,7 @@
 						android:background="@color/main_bg">
 
 						<View
-							android:id="@+id/tv_grid_4"
+							android:id="@+id/view_grid_4"
 							android:layout_width="match_parent"
 							android:layout_height="0dp"
 							android:layout_weight="1"
@@ -349,7 +363,7 @@
 							android:background="@drawable/btn_rect" />
 
 						<View
-							android:id="@+id/tv_grid_5"
+							android:id="@+id/view_grid_5"
 							android:layout_width="match_parent"
 							android:layout_height="0dp"
 							android:layout_weight="1"
@@ -357,7 +371,7 @@
 							android:background="@drawable/btn_rect" />
 
 						<View
-							android:id="@+id/tv_grid_6"
+							android:id="@+id/view_grid_6"
 							android:layout_width="match_parent"
 							android:layout_height="0dp"
 							android:layout_weight="1"
@@ -377,7 +391,7 @@
 						android:background="@color/main_bg">
 
 						<View
-							android:id="@+id/tv_grid_7"
+							android:id="@+id/view_grid_7"
 							android:layout_width="match_parent"
 							android:layout_height="0dp"
 							android:layout_weight="1"
@@ -385,7 +399,7 @@
 							android:background="@drawable/btn_rect" />
 
 						<View
-							android:id="@+id/tv_grid_8"
+							android:id="@+id/view_grid_8"
 							android:layout_width="match_parent"
 							android:layout_height="0dp"
 							android:layout_weight="1"
@@ -393,7 +407,7 @@
 							android:background="@drawable/btn_rect" />
 
 						<View
-							android:id="@+id/tv_grid_9"
+							android:id="@+id/view_grid_9"
 							android:layout_width="match_parent"
 							android:layout_height="0dp"
 							android:layout_weight="1"
@@ -412,6 +426,7 @@
 		</FrameLayout>
 
 		<com.as.metro.MetroLayout
+		    android:id="@+id/ml_magic_2_1"
 			android:layout_width="0dp"
 			android:layout_height="match_parent"
 			android:layout_weight="1"
@@ -425,6 +440,7 @@
 		        android:layout_height="3dp" />
 			
 		    <View
+		        android:id="@+id/view_node_10"
 		        android:layout_width="match_parent"
 		        android:layout_height="0dp"
 		        android:layout_weight="1"
@@ -435,6 +451,7 @@
 		        android:background="@drawable/magic_node" />
 			
 		    <View
+		        android:id="@+id/view_node_9"
 		        android:layout_width="match_parent"
 		        android:layout_height="0dp"
 		        android:layout_weight="1"
@@ -445,6 +462,7 @@
 		        android:background="@drawable/magic_node" />
 			
 		    <View
+		        android:id="@+id/view_node_8"
 		        android:layout_width="match_parent"
 		        android:layout_height="0dp"
 		        android:layout_weight="1"
@@ -455,6 +473,7 @@
 		        android:background="@drawable/magic_node" />
 			
 		    <View
+		        android:id="@+id/view_node_7"
 		        android:layout_width="match_parent"
 		        android:layout_height="0dp"
 		        android:layout_weight="1"
@@ -465,6 +484,7 @@
 		        android:background="@drawable/magic_node" />
 			
 		    <View
+		        android:id="@+id/view_node_6"
 		        android:layout_width="match_parent"
 		        android:layout_height="0dp"
 		        android:layout_weight="1"
@@ -475,6 +495,7 @@
 		        android:background="@drawable/magic_node" />
 			
 		    <View
+		        android:id="@+id/view_node_5"
 		        android:layout_width="match_parent"
 		        android:layout_height="0dp"
 		        android:layout_weight="1"
@@ -485,6 +506,7 @@
 		        android:background="@drawable/magic_node" />
 			
 		    <View
+		        android:id="@+id/view_node_4"
 		        android:layout_width="match_parent"
 		        android:layout_height="0dp"
 		        android:layout_weight="1"
@@ -495,6 +517,7 @@
 		        android:background="@drawable/magic_node" />
 			
 		    <View
+		        android:id="@+id/view_node_3"
 		        android:layout_width="match_parent"
 		        android:layout_height="0dp"
 		        android:layout_weight="1"
@@ -505,6 +528,7 @@
 		        android:background="@drawable/magic_node" />
 			
 		    <View
+		        android:id="@+id/view_node_2"
 		        android:layout_width="match_parent"
 		        android:layout_height="0dp"
 		        android:layout_weight="1"
@@ -515,6 +539,7 @@
 		        android:background="@drawable/magic_node" />
 			
 		    <View
+		        android:id="@+id/view_node_1"
 		        android:layout_width="match_parent"
 		        android:layout_height="0dp"
 		        android:layout_weight="1"
@@ -537,6 +562,7 @@
 			stone:color="@color/metro_nor">
 			
 			<com.as.chain.ui.ProgressBar
+			    android:id="@+id/pb_health_2_1"
 				android:layout_width="match_parent"
 				android:layout_height="match_parent"
 				android:paddingLeft="5dp"
@@ -555,6 +581,7 @@
        	android:layout_weight="1"/>
 	
 	<LinearLayout
+	    android:id="@+id/ll_skills"
 		android:layout_width="match_parent"
 		android:layout_height="0dp"
 		android:layout_weight="3"
@@ -575,6 +602,7 @@
 				android:background="@color/main_bg">
 
 				<TextView
+				    android:id="@+id/tv_skill_1"
 					android:layout_width="0dp"
 					android:layout_height="match_parent"
 					android:layout_weight="1"
@@ -585,6 +613,7 @@
 					android:textColor="@color/main_text" />
 
 				<TextView
+				    android:id="@+id/tv_skill_2"
 					android:layout_width="0dp"
 					android:layout_height="match_parent"
 					android:layout_weight="1"
@@ -595,6 +624,7 @@
 					android:textColor="@color/main_text" />
 
 				<TextView
+				    android:id="@+id/tv_skill_3"
 					android:layout_width="0dp"
 					android:layout_height="match_parent"
 					android:layout_weight="1"
@@ -605,6 +635,7 @@
 					android:textColor="@color/main_text" />
 
 				<TextView
+				    android:id="@+id/tv_skill_4"
 					android:layout_width="0dp"
 					android:layout_height="match_parent"
 					android:layout_weight="1"
@@ -632,6 +663,7 @@
 				android:background="@color/main_bg">
 
 				<TextView
+				    android:id="@+id/tv_round"
 					android:layout_width="0dp"
 					android:layout_height="match_parent"
 					android:layout_weight="2"
@@ -642,6 +674,7 @@
 					android:textColor="@color/main_text" />
 
 				<TextView
+				    android:id="@+id/tv_btn"
 					android:layout_width="0dp"
 					android:layout_height="match_parent"
 					android:layout_weight="1"

@@ -16,7 +16,6 @@ public class Hero {
 	
 	private static int sHealthMax = 1;
 	private static int sAttackMax = 1;
-	private static int sDefenceMax = 1;
 	
 	public final String id;
 	
@@ -28,7 +27,6 @@ public class Hero {
 	
 	public int health;
 	public int attack;
-	public int defence;
 	
 	public final List<Skill> skills = new ArrayList<Skill>();
 	
@@ -52,11 +50,6 @@ public class Hero {
 			attack = data.get("attack").toint();
 			if (attack > sAttackMax) {
 				sAttackMax = attack;
-			}
-			
-			defence = data.get("defence").toint();
-			if (defence > sDefenceMax) {
-				sDefenceMax = defence;
 			}
 			
 			LuaValue sks = data.get("skills");
@@ -84,9 +77,5 @@ public class Hero {
 	
 	public static int getAttackMax() {
 		return sAttackMax;
-	}
-	
-	public static int getDefenceMax() {
-		return sDefenceMax;
 	}
 }

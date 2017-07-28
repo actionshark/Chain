@@ -39,7 +39,6 @@ public class HeroActivity extends BaseActivity {
 	
 	private View mViewHealth;
 	private View mViewAttack;
-	private View mViewDefence;
 	
 	private final View[] mViewSkills = new View[4];
 	
@@ -104,7 +103,6 @@ public class HeroActivity extends BaseActivity {
 		
 		mViewHealth = detail.findViewById(R.id.ll_health);
 		mViewAttack = detail.findViewById(R.id.ll_attack);
-		mViewDefence = detail.findViewById(R.id.ll_defence);
 		
 		for (int i = 0; i < mViewSkills.length; i++) {
 			int resId = Res.getIdId("ml_skill_" + (i + 1));
@@ -187,11 +185,6 @@ public class HeroActivity extends BaseActivity {
 			.setText(String.valueOf(hero.attack));
 		((ProgressBar) mViewAttack.findViewById(R.id.pb_line))
 			.setProgress(hero.attack / Hero.getAttackMax());
-		
-		((TextView) mViewDefence.findViewById(R.id.tv_value))
-			.setText(String.valueOf(hero.defence));
-		((ProgressBar) mViewDefence.findViewById(R.id.pb_line))
-			.setProgress(hero.defence / Hero.getDefenceMax());
 		
 		for (int i = 0; i < mViewSkills.length; i++) {
 			View view = mViewSkills[i];
