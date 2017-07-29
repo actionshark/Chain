@@ -3,6 +3,7 @@ package com.as.chain.activity;
 import java.util.concurrent.Semaphore;
 
 import com.as.chain.R;
+import com.as.chain.activity.battle.BattleActivity;
 import com.as.chain.chat.ChatClient;
 import com.as.chain.chat.UserInfo;
 import com.as.chain.chat.req.EditNickname;

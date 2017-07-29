@@ -1,6 +1,8 @@
 package com.as.chain.game;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -80,8 +82,8 @@ public class Lineup {
 		Set<Integer> posSet = new HashSet<Integer>();
 		Set<String> heroSet = new HashSet<String>();
 		
-		String str = Setting.getInstance().getString(
-			String.format(KEY_LINEUP_DATA, index));
+		String key = String.format(KEY_LINEUP_DATA, index);
+		String str = Setting.getInstance().getString(key);
 		
 		if (str != null) {
 			try {
@@ -141,6 +143,13 @@ public class Lineup {
 				heroes.remove(heroes.size() - 1);
 			} while (heroes.size() > MAX_HERO_NUM);
 		}
+		
+		Collections.sort(heroes, new Comparator<Node>() {
+			@Override
+			public int compare(Node a, Node b) {
+				return a.position - b.position;
+			}
+		});
 		
 		return heroes;
 	}

@@ -50,6 +50,7 @@ public class ProgressBar extends View {
 	
 	public void setProgress(float progress) {
 		mProgress = progress;
+		mPaint.setColor(calcColor());
 		postInvalidate();
 	}
 	

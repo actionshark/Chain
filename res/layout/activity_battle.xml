@@ -9,12 +9,12 @@
 	android:background="@color/main_bg"
 	android:orientation="vertical"
 	android:baselineAligned="false">
-	
-    <View
-        android:layout_width="match_parent"
-       	android:layout_height="0dp"
-       	android:layout_weight="1"/>
-	
+
+	<View
+		android:layout_width="match_parent"
+		android:layout_height="0dp"
+		android:layout_weight="1" />
+
 	<LinearLayout
 		android:layout_width="match_parent"
 		android:layout_height="0dp"
@@ -27,9 +27,9 @@
 			android:layout_weight="1"
 			stone:color_pressed="@color/metro_pre"
 			stone:color="@color/metro_nor">
-			
+
 			<com.as.chain.ui.ProgressBar
-			    android:id="@+id/pb_health_1_1"
+				android:id="@+id/pb_health_1_1"
 				android:layout_width="match_parent"
 				android:layout_height="match_parent"
 				android:paddingLeft="5dp"
@@ -50,138 +50,148 @@
 			android:orientation="vertical"
 			stone:color_pressed="@color/metro_pre"
 			stone:color="@color/metro_nor">
-			
-		    <View
-		        android:layout_width="match_parent"
-		        android:layout_height="3dp" />
-			
-		    <View
-		        android:id="@+id/view_node_10"
-		        android:layout_width="match_parent"
-		        android:layout_height="0dp"
-		        android:layout_weight="1"
-		        android:layout_marginLeft="@dimen/magic_node_margin_hor"
-		        android:layout_marginRight="@dimen/magic_node_margin_hor"
-		        android:layout_marginTop="@dimen/magic_node_margin_ver"
-		        android:layout_marginBottom="@dimen/magic_node_margin_ver"
-		        android:background="@drawable/magic_node" />
-			
-		    <View
-		        android:id="@+id/view_node_9"
-		        android:layout_width="match_parent"
-		        android:layout_height="0dp"
-		        android:layout_weight="1"
-		        android:layout_marginLeft="@dimen/magic_node_margin_hor"
-		        android:layout_marginRight="@dimen/magic_node_margin_hor"
-		        android:layout_marginTop="@dimen/magic_node_margin_ver"
-		        android:layout_marginBottom="@dimen/magic_node_margin_ver"
-		        android:background="@drawable/magic_node" />
-			
-		    <View
-		        android:id="@+id/view_node_8"
-		        android:layout_width="match_parent"
-		        android:layout_height="0dp"
-		        android:layout_weight="1"
-		        android:layout_marginLeft="@dimen/magic_node_margin_hor"
-		        android:layout_marginRight="@dimen/magic_node_margin_hor"
-		        android:layout_marginTop="@dimen/magic_node_margin_ver"
-		        android:layout_marginBottom="@dimen/magic_node_margin_ver"
-		        android:background="@drawable/magic_node" />
-			
-		    <View
-		        android:id="@+id/view_node_7"
-		        android:layout_width="match_parent"
-		        android:layout_height="0dp"
-		        android:layout_weight="1"
-		        android:layout_marginLeft="@dimen/magic_node_margin_hor"
-		        android:layout_marginRight="@dimen/magic_node_margin_hor"
-		        android:layout_marginTop="@dimen/magic_node_margin_ver"
-		        android:layout_marginBottom="@dimen/magic_node_margin_ver"
-		        android:background="@drawable/magic_node" />
-			
-		    <View
-		        android:id="@+id/view_node_6"
-		        android:layout_width="match_parent"
-		        android:layout_height="0dp"
-		        android:layout_weight="1"
-		        android:layout_marginLeft="@dimen/magic_node_margin_hor"
-		        android:layout_marginRight="@dimen/magic_node_margin_hor"
-		        android:layout_marginTop="@dimen/magic_node_margin_ver"
-		        android:layout_marginBottom="@dimen/magic_node_margin_ver"
-		        android:background="@drawable/magic_node" />
-			
-		    <View
-		        android:id="@+id/view_node_5"
-		        android:layout_width="match_parent"
-		        android:layout_height="0dp"
-		        android:layout_weight="1"
-		        android:layout_marginLeft="@dimen/magic_node_margin_hor"
-		        android:layout_marginRight="@dimen/magic_node_margin_hor"
-		        android:layout_marginTop="@dimen/magic_node_margin_ver"
-		        android:layout_marginBottom="@dimen/magic_node_margin_ver"
-		        android:background="@drawable/magic_node" />
-			
-		    <View
-		        android:id="@+id/view_node_4"
-		        android:layout_width="match_parent"
-		        android:layout_height="0dp"
-		        android:layout_weight="1"
-		        android:layout_marginLeft="@dimen/magic_node_margin_hor"
-		        android:layout_marginRight="@dimen/magic_node_margin_hor"
-		        android:layout_marginTop="@dimen/magic_node_margin_ver"
-		        android:layout_marginBottom="@dimen/magic_node_margin_ver"
-		        android:background="@drawable/magic_node" />
-			
-		    <View
-		        android:id="@+id/view_node_3"
-		        android:layout_width="match_parent"
-		        android:layout_height="0dp"
-		        android:layout_weight="1"
-		        android:layout_marginLeft="@dimen/magic_node_margin_hor"
-		        android:layout_marginRight="@dimen/magic_node_margin_hor"
-		        android:layout_marginTop="@dimen/magic_node_margin_ver"
-		        android:layout_marginBottom="@dimen/magic_node_margin_ver"
-		        android:background="@drawable/magic_node" />
-			
-		    <View
-		        android:id="@+id/view_node_2"
-		        android:layout_width="match_parent"
-		        android:layout_height="0dp"
-		        android:layout_weight="1"
-		        android:layout_marginLeft="@dimen/magic_node_margin_hor"
-		        android:layout_marginRight="@dimen/magic_node_margin_hor"
-		        android:layout_marginTop="@dimen/magic_node_margin_ver"
-		        android:layout_marginBottom="@dimen/magic_node_margin_ver"
-		        android:background="@drawable/magic_node" />
-			
-		    <View
-		        android:id="@+id/view_node_1"
-		        android:layout_width="match_parent"
-		        android:layout_height="0dp"
-		        android:layout_weight="1"
-		        android:layout_marginLeft="@dimen/magic_node_margin_hor"
-		        android:layout_marginRight="@dimen/magic_node_margin_hor"
-		        android:layout_marginTop="@dimen/magic_node_margin_ver"
-		        android:layout_marginBottom="@dimen/magic_node_margin_ver"
-		        android:background="@drawable/magic_node" />
-			
-		    <View
-		        android:layout_width="match_parent"
-		        android:layout_height="3dp" />
+
+			<View
+				android:layout_width="match_parent"
+				android:layout_height="3dp" />
+
+			<View
+				android:id="@+id/view_node_10"
+				android:layout_width="match_parent"
+				android:layout_height="0dp"
+				android:layout_weight="1"
+				android:layout_marginLeft="@dimen/magic_node_margin_hor"
+				android:layout_marginRight="@dimen/magic_node_margin_hor"
+				android:layout_marginTop="@dimen/magic_node_margin_ver"
+				android:layout_marginBottom="@dimen/magic_node_margin_ver"
+				android:background="@drawable/magic_node"
+				android:visibility="invisible" />
+
+			<View
+				android:id="@+id/view_node_9"
+				android:layout_width="match_parent"
+				android:layout_height="0dp"
+				android:layout_weight="1"
+				android:layout_marginLeft="@dimen/magic_node_margin_hor"
+				android:layout_marginRight="@dimen/magic_node_margin_hor"
+				android:layout_marginTop="@dimen/magic_node_margin_ver"
+				android:layout_marginBottom="@dimen/magic_node_margin_ver"
+				android:background="@drawable/magic_node"
+				android:visibility="invisible" />
+
+			<View
+				android:id="@+id/view_node_8"
+				android:layout_width="match_parent"
+				android:layout_height="0dp"
+				android:layout_weight="1"
+				android:layout_marginLeft="@dimen/magic_node_margin_hor"
+				android:layout_marginRight="@dimen/magic_node_margin_hor"
+				android:layout_marginTop="@dimen/magic_node_margin_ver"
+				android:layout_marginBottom="@dimen/magic_node_margin_ver"
+				android:background="@drawable/magic_node"
+				android:visibility="invisible" />
+
+			<View
+				android:id="@+id/view_node_7"
+				android:layout_width="match_parent"
+				android:layout_height="0dp"
+				android:layout_weight="1"
+				android:layout_marginLeft="@dimen/magic_node_margin_hor"
+				android:layout_marginRight="@dimen/magic_node_margin_hor"
+				android:layout_marginTop="@dimen/magic_node_margin_ver"
+				android:layout_marginBottom="@dimen/magic_node_margin_ver"
+				android:background="@drawable/magic_node"
+				android:visibility="invisible" />
+
+			<View
+				android:id="@+id/view_node_6"
+				android:layout_width="match_parent"
+				android:layout_height="0dp"
+				android:layout_weight="1"
+				android:layout_marginLeft="@dimen/magic_node_margin_hor"
+				android:layout_marginRight="@dimen/magic_node_margin_hor"
+				android:layout_marginTop="@dimen/magic_node_margin_ver"
+				android:layout_marginBottom="@dimen/magic_node_margin_ver"
+				android:background="@drawable/magic_node"
+				android:visibility="invisible" />
+
+			<View
+				android:id="@+id/view_node_5"
+				android:layout_width="match_parent"
+				android:layout_height="0dp"
+				android:layout_weight="1"
+				android:layout_marginLeft="@dimen/magic_node_margin_hor"
+				android:layout_marginRight="@dimen/magic_node_margin_hor"
+				android:layout_marginTop="@dimen/magic_node_margin_ver"
+				android:layout_marginBottom="@dimen/magic_node_margin_ver"
+				android:background="@drawable/magic_node"
+				android:visibility="invisible" />
+
+			<View
+				android:id="@+id/view_node_4"
+				android:layout_width="match_parent"
+				android:layout_height="0dp"
+				android:layout_weight="1"
+				android:layout_marginLeft="@dimen/magic_node_margin_hor"
+				android:layout_marginRight="@dimen/magic_node_margin_hor"
+				android:layout_marginTop="@dimen/magic_node_margin_ver"
+				android:layout_marginBottom="@dimen/magic_node_margin_ver"
+				android:background="@drawable/magic_node"
+				android:visibility="invisible" />
+
+			<View
+				android:id="@+id/view_node_3"
+				android:layout_width="match_parent"
+				android:layout_height="0dp"
+				android:layout_weight="1"
+				android:layout_marginLeft="@dimen/magic_node_margin_hor"
+				android:layout_marginRight="@dimen/magic_node_margin_hor"
+				android:layout_marginTop="@dimen/magic_node_margin_ver"
+				android:layout_marginBottom="@dimen/magic_node_margin_ver"
+				android:background="@drawable/magic_node"
+				android:visibility="invisible" />
+
+			<View
+				android:id="@+id/view_node_2"
+				android:layout_width="match_parent"
+				android:layout_height="0dp"
+				android:layout_weight="1"
+				android:layout_marginLeft="@dimen/magic_node_margin_hor"
+				android:layout_marginRight="@dimen/magic_node_margin_hor"
+				android:layout_marginTop="@dimen/magic_node_margin_ver"
+				android:layout_marginBottom="@dimen/magic_node_margin_ver"
+				android:background="@drawable/magic_node"
+				android:visibility="invisible" />
+
+			<View
+				android:id="@+id/view_node_1"
+				android:layout_width="match_parent"
+				android:layout_height="0dp"
+				android:layout_weight="1"
+				android:layout_marginLeft="@dimen/magic_node_margin_hor"
+				android:layout_marginRight="@dimen/magic_node_margin_hor"
+				android:layout_marginTop="@dimen/magic_node_margin_ver"
+				android:layout_marginBottom="@dimen/magic_node_margin_ver"
+				android:background="@drawable/magic_node"
+				android:visibility="invisible" />
+
+			<View
+				android:layout_width="match_parent"
+				android:layout_height="3dp" />
 		</com.as.metro.MetroLayout>
 
 		<FrameLayout
 			android:layout_width="0dp"
 			android:layout_height="match_parent"
 			android:layout_weight="14">
-	
+
 			<LinearLayout
 				android:layout_width="match_parent"
 				android:layout_height="match_parent"
 				android:orientation="horizontal">
-	
+
 				<com.as.metro.MetroLayout
-				    android:id="@+id/ml_grids_1_1"
+					android:id="@+id/ml_grids_1_1"
 					android:layout_width="0dp"
 					android:layout_height="match_parent"
 					android:layout_weight="3"
@@ -295,14 +305,14 @@
 
 					</LinearLayout>
 				</com.as.metro.MetroLayout>
-	
-			    <View
-			        android:layout_width="0dp"
-			       	android:layout_height="match_parent"
-			       	android:layout_weight="1"/>
-		
+
+				<View
+					android:layout_width="0dp"
+					android:layout_height="match_parent"
+					android:layout_weight="1" />
+
 				<com.as.metro.MetroLayout
-				    android:id="@+id/ml_grids_2_1"
+					android:id="@+id/ml_grids_2_1"
 					android:layout_width="0dp"
 					android:layout_height="match_parent"
 					android:layout_weight="3"
@@ -416,17 +426,18 @@
 
 					</LinearLayout>
 				</com.as.metro.MetroLayout>
-				
+
 			</LinearLayout>
-			
+
 			<AbsoluteLayout
-			    android:layout_width="match_parent"
-			    android:layout_height="match_parent" />
-	
+				android:id="@+id/al_field"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent" />
+
 		</FrameLayout>
 
 		<com.as.metro.MetroLayout
-		    android:id="@+id/ml_magic_2_1"
+			android:id="@+id/ml_magic_2_1"
 			android:layout_width="0dp"
 			android:layout_height="match_parent"
 			android:layout_weight="1"
@@ -434,135 +445,145 @@
 			android:orientation="vertical"
 			stone:color_pressed="@color/metro_pre"
 			stone:color="@color/metro_nor">
-			
-		    <View
-		        android:layout_width="match_parent"
-		        android:layout_height="3dp" />
-			
-		    <View
-		        android:id="@+id/view_node_10"
-		        android:layout_width="match_parent"
-		        android:layout_height="0dp"
-		        android:layout_weight="1"
-		        android:layout_marginLeft="@dimen/magic_node_margin_hor"
-		        android:layout_marginRight="@dimen/magic_node_margin_hor"
-		        android:layout_marginTop="@dimen/magic_node_margin_ver"
-		        android:layout_marginBottom="@dimen/magic_node_margin_ver"
-		        android:background="@drawable/magic_node" />
-			
-		    <View
-		        android:id="@+id/view_node_9"
-		        android:layout_width="match_parent"
-		        android:layout_height="0dp"
-		        android:layout_weight="1"
-		        android:layout_marginLeft="@dimen/magic_node_margin_hor"
-		        android:layout_marginRight="@dimen/magic_node_margin_hor"
-		        android:layout_marginTop="@dimen/magic_node_margin_ver"
-		        android:layout_marginBottom="@dimen/magic_node_margin_ver"
-		        android:background="@drawable/magic_node" />
-			
-		    <View
-		        android:id="@+id/view_node_8"
-		        android:layout_width="match_parent"
-		        android:layout_height="0dp"
-		        android:layout_weight="1"
-		        android:layout_marginLeft="@dimen/magic_node_margin_hor"
-		        android:layout_marginRight="@dimen/magic_node_margin_hor"
-		        android:layout_marginTop="@dimen/magic_node_margin_ver"
-		        android:layout_marginBottom="@dimen/magic_node_margin_ver"
-		        android:background="@drawable/magic_node" />
-			
-		    <View
-		        android:id="@+id/view_node_7"
-		        android:layout_width="match_parent"
-		        android:layout_height="0dp"
-		        android:layout_weight="1"
-		        android:layout_marginLeft="@dimen/magic_node_margin_hor"
-		        android:layout_marginRight="@dimen/magic_node_margin_hor"
-		        android:layout_marginTop="@dimen/magic_node_margin_ver"
-		        android:layout_marginBottom="@dimen/magic_node_margin_ver"
-		        android:background="@drawable/magic_node" />
-			
-		    <View
-		        android:id="@+id/view_node_6"
-		        android:layout_width="match_parent"
-		        android:layout_height="0dp"
-		        android:layout_weight="1"
-		        android:layout_marginLeft="@dimen/magic_node_margin_hor"
-		        android:layout_marginRight="@dimen/magic_node_margin_hor"
-		        android:layout_marginTop="@dimen/magic_node_margin_ver"
-		        android:layout_marginBottom="@dimen/magic_node_margin_ver"
-		        android:background="@drawable/magic_node" />
-			
-		    <View
-		        android:id="@+id/view_node_5"
-		        android:layout_width="match_parent"
-		        android:layout_height="0dp"
-		        android:layout_weight="1"
-		        android:layout_marginLeft="@dimen/magic_node_margin_hor"
-		        android:layout_marginRight="@dimen/magic_node_margin_hor"
-		        android:layout_marginTop="@dimen/magic_node_margin_ver"
-		        android:layout_marginBottom="@dimen/magic_node_margin_ver"
-		        android:background="@drawable/magic_node" />
-			
-		    <View
-		        android:id="@+id/view_node_4"
-		        android:layout_width="match_parent"
-		        android:layout_height="0dp"
-		        android:layout_weight="1"
-		        android:layout_marginLeft="@dimen/magic_node_margin_hor"
-		        android:layout_marginRight="@dimen/magic_node_margin_hor"
-		        android:layout_marginTop="@dimen/magic_node_margin_ver"
-		        android:layout_marginBottom="@dimen/magic_node_margin_ver"
-		        android:background="@drawable/magic_node" />
-			
-		    <View
-		        android:id="@+id/view_node_3"
-		        android:layout_width="match_parent"
-		        android:layout_height="0dp"
-		        android:layout_weight="1"
-		        android:layout_marginLeft="@dimen/magic_node_margin_hor"
-		        android:layout_marginRight="@dimen/magic_node_margin_hor"
-		        android:layout_marginTop="@dimen/magic_node_margin_ver"
-		        android:layout_marginBottom="@dimen/magic_node_margin_ver"
-		        android:background="@drawable/magic_node" />
-			
-		    <View
-		        android:id="@+id/view_node_2"
-		        android:layout_width="match_parent"
-		        android:layout_height="0dp"
-		        android:layout_weight="1"
-		        android:layout_marginLeft="@dimen/magic_node_margin_hor"
-		        android:layout_marginRight="@dimen/magic_node_margin_hor"
-		        android:layout_marginTop="@dimen/magic_node_margin_ver"
-		        android:layout_marginBottom="@dimen/magic_node_margin_ver"
-		        android:background="@drawable/magic_node" />
-			
-		    <View
-		        android:id="@+id/view_node_1"
-		        android:layout_width="match_parent"
-		        android:layout_height="0dp"
-		        android:layout_weight="1"
-		        android:layout_marginLeft="@dimen/magic_node_margin_hor"
-		        android:layout_marginRight="@dimen/magic_node_margin_hor"
-		        android:layout_marginTop="@dimen/magic_node_margin_ver"
-		        android:layout_marginBottom="@dimen/magic_node_margin_ver"
-		        android:background="@drawable/magic_node" />
-			
-		    <View
-		        android:layout_width="match_parent"
-		        android:layout_height="3dp" />
+
+			<View
+				android:layout_width="match_parent"
+				android:layout_height="3dp" />
+
+			<View
+				android:id="@+id/view_node_10"
+				android:layout_width="match_parent"
+				android:layout_height="0dp"
+				android:layout_weight="1"
+				android:layout_marginLeft="@dimen/magic_node_margin_hor"
+				android:layout_marginRight="@dimen/magic_node_margin_hor"
+				android:layout_marginTop="@dimen/magic_node_margin_ver"
+				android:layout_marginBottom="@dimen/magic_node_margin_ver"
+				android:background="@drawable/magic_node"
+				android:visibility="invisible" />
+
+			<View
+				android:id="@+id/view_node_9"
+				android:layout_width="match_parent"
+				android:layout_height="0dp"
+				android:layout_weight="1"
+				android:layout_marginLeft="@dimen/magic_node_margin_hor"
+				android:layout_marginRight="@dimen/magic_node_margin_hor"
+				android:layout_marginTop="@dimen/magic_node_margin_ver"
+				android:layout_marginBottom="@dimen/magic_node_margin_ver"
+				android:background="@drawable/magic_node"
+				android:visibility="invisible" />
+
+			<View
+				android:id="@+id/view_node_8"
+				android:layout_width="match_parent"
+				android:layout_height="0dp"
+				android:layout_weight="1"
+				android:layout_marginLeft="@dimen/magic_node_margin_hor"
+				android:layout_marginRight="@dimen/magic_node_margin_hor"
+				android:layout_marginTop="@dimen/magic_node_margin_ver"
+				android:layout_marginBottom="@dimen/magic_node_margin_ver"
+				android:background="@drawable/magic_node"
+				android:visibility="invisible" />
+
+			<View
+				android:id="@+id/view_node_7"
+				android:layout_width="match_parent"
+				android:layout_height="0dp"
+				android:layout_weight="1"
+				android:layout_marginLeft="@dimen/magic_node_margin_hor"
+				android:layout_marginRight="@dimen/magic_node_margin_hor"
+				android:layout_marginTop="@dimen/magic_node_margin_ver"
+				android:layout_marginBottom="@dimen/magic_node_margin_ver"
+				android:background="@drawable/magic_node"
+				android:visibility="invisible" />
+
+			<View
+				android:id="@+id/view_node_6"
+				android:layout_width="match_parent"
+				android:layout_height="0dp"
+				android:layout_weight="1"
+				android:layout_marginLeft="@dimen/magic_node_margin_hor"
+				android:layout_marginRight="@dimen/magic_node_margin_hor"
+				android:layout_marginTop="@dimen/magic_node_margin_ver"
+				android:layout_marginBottom="@dimen/magic_node_margin_ver"
+				android:background="@drawable/magic_node"
+				android:visibility="invisible" />
+
+			<View
+				android:id="@+id/view_node_5"
+				android:layout_width="match_parent"
+				android:layout_height="0dp"
+				android:layout_weight="1"
+				android:layout_marginLeft="@dimen/magic_node_margin_hor"
+				android:layout_marginRight="@dimen/magic_node_margin_hor"
+				android:layout_marginTop="@dimen/magic_node_margin_ver"
+				android:layout_marginBottom="@dimen/magic_node_margin_ver"
+				android:background="@drawable/magic_node"
+				android:visibility="invisible" />
+
+			<View
+				android:id="@+id/view_node_4"
+				android:layout_width="match_parent"
+				android:layout_height="0dp"
+				android:layout_weight="1"
+				android:layout_marginLeft="@dimen/magic_node_margin_hor"
+				android:layout_marginRight="@dimen/magic_node_margin_hor"
+				android:layout_marginTop="@dimen/magic_node_margin_ver"
+				android:layout_marginBottom="@dimen/magic_node_margin_ver"
+				android:background="@drawable/magic_node"
+				android:visibility="invisible" />
+
+			<View
+				android:id="@+id/view_node_3"
+				android:layout_width="match_parent"
+				android:layout_height="0dp"
+				android:layout_weight="1"
+				android:layout_marginLeft="@dimen/magic_node_margin_hor"
+				android:layout_marginRight="@dimen/magic_node_margin_hor"
+				android:layout_marginTop="@dimen/magic_node_margin_ver"
+				android:layout_marginBottom="@dimen/magic_node_margin_ver"
+				android:background="@drawable/magic_node"
+				android:visibility="invisible" />
+
+			<View
+				android:id="@+id/view_node_2"
+				android:layout_width="match_parent"
+				android:layout_height="0dp"
+				android:layout_weight="1"
+				android:layout_marginLeft="@dimen/magic_node_margin_hor"
+				android:layout_marginRight="@dimen/magic_node_margin_hor"
+				android:layout_marginTop="@dimen/magic_node_margin_ver"
+				android:layout_marginBottom="@dimen/magic_node_margin_ver"
+				android:background="@drawable/magic_node"
+				android:visibility="invisible" />
+
+			<View
+				android:id="@+id/view_node_1"
+				android:layout_width="match_parent"
+				android:layout_height="0dp"
+				android:layout_weight="1"
+				android:layout_marginLeft="@dimen/magic_node_margin_hor"
+				android:layout_marginRight="@dimen/magic_node_margin_hor"
+				android:layout_marginTop="@dimen/magic_node_margin_ver"
+				android:layout_marginBottom="@dimen/magic_node_margin_ver"
+				android:background="@drawable/magic_node"
+				android:visibility="invisible" />
+
+			<View
+				android:layout_width="match_parent"
+				android:layout_height="3dp" />
 		</com.as.metro.MetroLayout>
-		
+
 		<com.as.metro.MetroLayout
 			android:layout_width="0dp"
 			android:layout_height="match_parent"
 			android:layout_weight="1"
 			stone:color_pressed="@color/metro_pre"
 			stone:color="@color/metro_nor">
-			
+
 			<com.as.chain.ui.ProgressBar
-			    android:id="@+id/pb_health_2_1"
+				android:id="@+id/pb_health_2_1"
 				android:layout_width="match_parent"
 				android:layout_height="match_parent"
 				android:paddingLeft="5dp"
@@ -574,19 +595,19 @@
 				chain:end_color="@color/health_bar_end" />
 		</com.as.metro.MetroLayout>
 	</LinearLayout>
-	
-    <View
-        android:layout_width="match_parent"
-       	android:layout_height="0dp"
-       	android:layout_weight="1"/>
-	
+
+	<View
+		android:layout_width="match_parent"
+		android:layout_height="0dp"
+		android:layout_weight="1" />
+
 	<LinearLayout
-	    android:id="@+id/ll_skills"
+		android:id="@+id/ll_skills"
 		android:layout_width="match_parent"
 		android:layout_height="0dp"
 		android:layout_weight="3"
 		android:orientation="horizontal">
-		
+
 		<com.as.metro.MetroLayout
 			android:layout_width="0dp"
 			android:layout_height="match_parent"
@@ -601,53 +622,113 @@
 				android:orientation="horizontal"
 				android:background="@color/main_bg">
 
-				<TextView
-				    android:id="@+id/tv_skill_1"
+				<FrameLayout
+					android:id="@+id/fl_skill_1"
 					android:layout_width="0dp"
 					android:layout_height="match_parent"
 					android:layout_weight="1"
 					android:layout_margin="1dp"
-					android:gravity="center"
-					android:background="@drawable/btn_rect"
-					android:textSize="@dimen/main_text_normal"
-					android:textColor="@color/main_text" />
+					android:background="@drawable/btn_rect">
 
-				<TextView
-				    android:id="@+id/tv_skill_2"
-					android:layout_width="0dp"
-					android:layout_height="match_parent"
-					android:layout_weight="1"
-					android:layout_margin="1dp"
-					android:gravity="center"
-					android:background="@drawable/btn_rect"
-					android:textSize="@dimen/main_text_normal"
-					android:textColor="@color/main_text" />
+					<TextView
+						android:id="@+id/tv_name"
+						android:layout_width="match_parent"
+						android:layout_height="match_parent"
+						android:gravity="center"
+						android:textSize="@dimen/main_text_normal"
+						android:textColor="#ffffff" />
 
-				<TextView
-				    android:id="@+id/tv_skill_3"
-					android:layout_width="0dp"
-					android:layout_height="match_parent"
-					android:layout_weight="1"
-					android:layout_margin="1dp"
-					android:gravity="center"
-					android:background="@drawable/btn_rect"
-					android:textSize="@dimen/main_text_normal"
-					android:textColor="@color/main_text" />
+					<TextView
+						android:id="@+id/tv_cd"
+						android:layout_width="match_parent"
+						android:layout_height="match_parent"
+						android:gravity="center"
+						android:textSize="@dimen/main_text_big"
+						android:textColor="#000000" />
 
-				<TextView
-				    android:id="@+id/tv_skill_4"
+				</FrameLayout>
+
+				<FrameLayout
+					android:id="@+id/fl_skill_2"
 					android:layout_width="0dp"
 					android:layout_height="match_parent"
 					android:layout_weight="1"
 					android:layout_margin="1dp"
-					android:gravity="center"
-					android:background="@drawable/btn_rect"
-					android:textSize="@dimen/main_text_normal"
-					android:textColor="@color/main_text" />
+					android:background="@drawable/btn_rect">
+
+					<TextView
+						android:id="@+id/tv_name"
+						android:layout_width="match_parent"
+						android:layout_height="match_parent"
+						android:gravity="center"
+						android:textSize="@dimen/main_text_normal"
+						android:textColor="#ffffff" />
+
+					<TextView
+						android:id="@+id/tv_cd"
+						android:layout_width="match_parent"
+						android:layout_height="match_parent"
+						android:gravity="center"
+						android:textSize="@dimen/main_text_big"
+						android:textColor="#000000" />
+
+				</FrameLayout>
+
+				<FrameLayout
+					android:id="@+id/fl_skill_3"
+					android:layout_width="0dp"
+					android:layout_height="match_parent"
+					android:layout_weight="1"
+					android:layout_margin="1dp"
+					android:background="@drawable/btn_rect">
+
+					<TextView
+						android:id="@+id/tv_name"
+						android:layout_width="match_parent"
+						android:layout_height="match_parent"
+						android:gravity="center"
+						android:textSize="@dimen/main_text_normal"
+						android:textColor="#ffffff" />
+
+					<TextView
+						android:id="@+id/tv_cd"
+						android:layout_width="match_parent"
+						android:layout_height="match_parent"
+						android:gravity="center"
+						android:textSize="@dimen/main_text_big"
+						android:textColor="#000000" />
+
+				</FrameLayout>
+
+				<FrameLayout
+					android:id="@+id/fl_skill_4"
+					android:layout_width="0dp"
+					android:layout_height="match_parent"
+					android:layout_weight="1"
+					android:layout_margin="1dp"
+					android:background="@drawable/btn_rect">
+
+					<TextView
+						android:id="@+id/tv_name"
+						android:layout_width="match_parent"
+						android:layout_height="match_parent"
+						android:gravity="center"
+						android:textSize="@dimen/main_text_normal"
+						android:textColor="#ffffff" />
+
+					<TextView
+						android:id="@+id/tv_cd"
+						android:layout_width="match_parent"
+						android:layout_height="match_parent"
+						android:gravity="center"
+						android:textSize="@dimen/main_text_big"
+						android:textColor="#000000" />
+
+				</FrameLayout>
 			</LinearLayout>
-		    
+
 		</com.as.metro.MetroLayout>
-		
+
 		<com.as.metro.MetroLayout
 			android:layout_width="0dp"
 			android:layout_height="match_parent"
@@ -663,7 +744,7 @@
 				android:background="@color/main_bg">
 
 				<TextView
-				    android:id="@+id/tv_round"
+					android:id="@+id/tv_round"
 					android:layout_width="0dp"
 					android:layout_height="match_parent"
 					android:layout_weight="2"
@@ -674,7 +755,7 @@
 					android:textColor="@color/main_text" />
 
 				<TextView
-				    android:id="@+id/tv_btn"
+					android:id="@+id/tv_btn"
 					android:layout_width="0dp"
 					android:layout_height="match_parent"
 					android:layout_weight="1"

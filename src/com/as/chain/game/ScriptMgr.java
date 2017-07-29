@@ -25,13 +25,10 @@ public class ScriptMgr {
 	
 	private static ScriptMgr sMgr;
 	
-	public static synchronized void createMgr() {
-		sMgr = new ScriptMgr();
-	}
-	
 	public static synchronized ScriptMgr getInstance() {
 		if (sMgr == null) {
-			createMgr();
+			sMgr = new ScriptMgr();
+			sMgr.init();
 		}
 		
 		return sMgr;
@@ -82,14 +79,18 @@ public class ScriptMgr {
 	
 	private final Globals mGlobals;
 	
-	private List<Hero> mHeroList;
+	private final List<Hero> mHeroList = new ArrayList<Hero>();
 	private final Map<String, Hero> mHeroMap = new HashMap<String, Hero>();
 	
-	public ScriptMgr() {
+	private ScriptMgr() {
 		mGlobals = JsePlatform.standardGlobals();
-		
+	}
+	
+	private void init() {
 		LuaValue main = mGlobals.loadfile(DataMgr.UPDATE_PATH + "src/common/main.lua").call();
 		main.get("init").call(DataMgr.UPDATE_PATH + "src/");
+		
+		loadHeroes();
 	}
 	
 	public Globals getGlobals() {
@@ -105,12 +106,6 @@ public class ScriptMgr {
 	}
 	
 	private synchronized void loadHeroes() {
-		if (mHeroList != null) {
-			return;
-		}
-
-		mHeroList = new ArrayList<Hero>();
-		
 		File dir = new File(DataMgr.UPDATE_PATH + "src/hero");
 		File[] files = dir.listFiles();
 		
@@ -134,11 +129,10 @@ public class ScriptMgr {
 	}
 	
 	public synchronized List<Hero> getHeroes() {
-		loadHeroes();
-		return new ArrayList<Hero>(mHeroList);
+		return mHeroList;
 	}
 	
-	public Hero getHero(String id) {
+	public synchronized Hero getHero(String id) {
 		return mHeroMap.get(id);
 	}
 }

@@ -35,4 +35,16 @@ public class Define {
 			this.text = text;
 		}
 	}
+	
+	public static final String MOMENT_GAME_START = "GameStart";
+	public static final String MOMENT_GAME_END = "GameEnd";
+	
+	public static final String MOMENT_ROUND_START = "RoundStart";
+	public static final String MOMENT_ROUND_END = "RoundEnd";
+	
+	public static final String MOMENT_ATTACK = "Attack";
+	public static final String MOMENT_DAMAGE = "Damage";
+	
+	public static final int PHASE_BEFORE = 1;
+	public static final int PHASE_AFTER = 3;
 }
