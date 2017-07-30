@@ -13,7 +13,6 @@ import com.js.log.Level;
 import com.js.log.Logger;
 import com.js.thread.ThreadUtil;
 
-import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.Animation.AnimationListener;
 import android.view.animation.TranslateAnimation;
@@ -22,7 +21,6 @@ public class BattleListener extends ThreeArgFunction {
 	public static final String TAG = BattleListener.class.getSimpleName();
 	
 	protected final BattleActivity mActivity;
-	
 	protected LuaValue mBattle;
 	
 	public BattleListener(BattleActivity activity) {
@@ -37,17 +35,14 @@ public class BattleListener extends ThreeArgFunction {
 		final int phase = momentPhase.toint();
 		
 		Logger.getInstance().print(TAG, Level.D, moment, phase);
-		Logger.getInstance().print(TAG, Level.D, ScriptMgr.toString(data, 3));
+		Logger.getInstance().print(TAG, Level.D, ScriptMgr.toString(data, 2));
 		
 		ThreadUtil.getMain().run(new Runnable() {
 			@Override
 			public void run() {
-				if (phase != Define.PHASE_AFTER) {
-					mActivity.resumeBattle(1000);
-					return;
-				}
-				
-				if (Define.MOMENT_GAME_START.equals(moment)) {
+				if (phase == Define.PHASE_BEFORE &&
+						Define.MOMENT_GAME_START.equals(moment)) {
+					
 					final AtomicInteger skillIdx = new AtomicInteger(0);
 					
 					new Traver(mActivity) {
@@ -86,56 +81,30 @@ public class BattleListener extends ThreeArgFunction {
 						}
 					}.start();
 					
-					mActivity.resumeBattle(1000);
+					mActivity.resumeBattle(1500);
+					return;
+				}
+				
+				if (phase != Define.PHASE_AFTER) {
+					mActivity.resumeBattle(0);
+					return;
+				}
+				
+				if (Define.MOMENT_GAME_START.equals(moment)) {
+					mActivity.display(R.string.msg_battle_start);
+					mActivity.resumeBattle(1500);
 				} else if(Define.MOMENT_ROUND_START.equals(moment)) {
+					mActivity.display(mActivity.getString(R.string.msg_round_index,
+						mBattle.get("round_index").toint()));
+					
 					mActivity.mRound.setText(mActivity.getString(
-						R.string.msg_round_index,
+						R.string.msg_round_index_max,
 						mBattle.get("round_index").toint(),
 						mBattle.get("config").get("round_num_max").toint()));
 					
-					final AtomicInteger mv = new AtomicInteger(0);
-
-					new Traver(mActivity) {
-						@Override
-						public void onGroup(LuaValue sg, GroupHolder bg,
-								int sideIdx, int groupIdx) {
-							
-							int magicValue = sg.get("magic_value").toint();
-							for (int i = 0; i < bg.magics.length; i++) {
-								bg.magics[i].setVisibility(i < magicValue ?
-									View.VISIBLE : View.INVISIBLE);
-							}
-							
-							if (sideIdx == mActivity.mMySideIdx &&
-									groupIdx == mActivity.mMyGroupIdx) {
-								
-								mv.set(magicValue);
-							}
-						}
-					}.start();
-					
-					for (SkillHolder hs : mActivity.mSkills) {
-						if (hs.skill == null) {
-							hs.name.setText("");
-							hs.cd.setVisibility(View.INVISIBLE);
-						} else {
-							int cd = hs.skill.get("cd_count").toint();
-							
-							boolean ok = hs.hero.get("is_dead").toboolean() == false
-									&& cd <= 0
-									&& hs.skill.get("magic_cost").toint() <= mv.get();
-							
-							hs.name.setTextColor(ok ? 0xff0000ff : 0xffffffff);
-							
-							if (cd > 0) {
-								hs.cd.setText(String.valueOf(cd));
-								hs.cd.setVisibility(View.VISIBLE);
-							} else {
-								hs.cd.setVisibility(View.INVISIBLE);
-							}
-						}
-					}
-					
+					mActivity.updateBase();
+					mActivity.resumeBattle(1000);
+				} else if (Define.MOMENT_ROUND_END.equals(moment)) {
 					mActivity.resumeBattle(1000);
 				} else if (Define.MOMENT_ATTACK.equals(moment)) {
 					final LuaValue srcHero = data.get("src_hero");
@@ -153,20 +122,19 @@ public class BattleListener extends ThreeArgFunction {
 						[dstGrid.get("group_index").toint() - 1].grids
 						[dstGrid.get("grid_index").toint() - 1];
 					
-					int dstX = dstHolder.x;
-					int dstY = dstHolder.y;
+					final int dstX;
+					final int dstY = dstHolder.y;
 					if (srcGrid.get("side_index").toint() == 1) {
-						dstX -= dstHolder.width * 3 / 4;
+						dstX = dstHolder.x - dstHolder.width * 3 / 4;
 					} else {
-						dstX += dstHolder.width * 3 / 4;
+						dstX = dstHolder.x + dstHolder.width * 3 / 4;
 					}
 					
 					Animation anim = new TranslateAnimation(
-						srcHolder.x - srcHolder.hero.getX(),
-						dstX - srcHolder.hero.getX(),
-						srcHolder.y - srcHolder.hero.getY(),
-						dstY - srcHolder.hero.getY());
-					anim.setDuration(5000);
+						0, dstX - srcHolder.hero.getX(),
+						0, dstY - srcHolder.hero.getY());
+					anim.setDuration(800);
+					anim.setFillAfter(true);
 					anim.setAnimationListener(new AnimationListener() {
 						@Override
 						public void onAnimationStart(Animation animation) {
@@ -179,19 +147,20 @@ public class BattleListener extends ThreeArgFunction {
 						@Override
 						public void onAnimationEnd(Animation animation) {
 							Animation anim = new TranslateAnimation(
-								0, srcHolder.x - srcHolder.hero.getX(),
-								0, srcHolder.y - srcHolder.hero.getY());
-							anim.setStartOffset(5000);
-							anim.setDuration(5000);
-							srcHolder.hero.clearAnimation();
+								dstX - srcHolder.hero.getX(),
+								srcHolder.x - srcHolder.hero.getX(),
+								dstY - srcHolder.hero.getY(),
+								srcHolder.y - srcHolder.hero.getY());
+							anim.setStartOffset(500);
+							anim.setDuration(600);
+							anim.setFillAfter(true);
 							srcHolder.hero.startAnimation(anim);
-							
-							mActivity.resumeBattle(5000);
 						}
 					});
 					
-					srcHolder.hero.clearAnimation();
 					srcHolder.hero.startAnimation(anim);
+					
+					mActivity.resumeBattle(1000);
 				} else if (Define.MOMENT_DAMAGE.equals(moment)) {
 					LuaValue dstHeroes = data.get("dst_heroes");
 					LuaValue damages = data.get("dst_damages");
@@ -213,7 +182,8 @@ public class BattleListener extends ThreeArgFunction {
 							dstHero.get("shield").toint());
 					}
 					
-					mActivity.resumeBattle(900);
+					mActivity.updateBase();
+					mActivity.resumeBattle(1000);
 				} else {
 					mActivity.resumeBattle(1000);
 				}

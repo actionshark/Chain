@@ -12,9 +12,11 @@ import org.luaj.vm2.lib.ZeroArgFunction;
 import com.as.app.Res;
 import com.as.chain.R;
 import com.as.chain.activity.BaseActivity;
+import com.as.chain.game.Define.HeroType;
 import com.as.chain.game.Lineup;
 import com.as.chain.game.ScriptMgr;
 import com.as.chain.game.Lineup.Node;
+import com.as.chain.ui.BattleHero;
 import com.as.chain.ui.ProgressBar;
 import com.as.chain.util.DataMgr;
 import com.js.log.Level;
@@ -45,6 +47,9 @@ public class BattleActivity extends BaseActivity {
 	protected int mMyGroupIdx = 1;
 	
 	protected final Queue<Runnable> mEventQueue = new LinkedList<Runnable>();
+	
+	protected TextView mTvDisplay;
+	protected Object mDisplayMark;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -143,6 +148,8 @@ public class BattleActivity extends BaseActivity {
 				resumeBattle(0);
 			}
 		});
+		
+		mTvDisplay = (TextView) findViewById(R.id.tv_display);
 	}
 	
 	private void initBattle() {
@@ -224,7 +231,7 @@ public class BattleActivity extends BaseActivity {
 				public void run() {
 					mSema.release();
 				}
-			});
+			}, delay);
 		} else {
 			mSema.release();
 		}
@@ -234,5 +241,119 @@ public class BattleActivity extends BaseActivity {
 		synchronized (mEventQueue) {
 			mEventQueue.offer(runnable);
 		}
+	}
+	
+	protected void updateBase() {
+		LuaValue sides = mBattle.get("side");
+		
+		for (int sideIdx = 1; sideIdx <= sides.length(); sideIdx++) {
+			LuaValue side = sides.get(sideIdx);
+			
+			for (int groupIdx = 1; groupIdx <= side.length(); groupIdx++) {
+				LuaValue group = side.get(groupIdx);
+				GroupHolder groupHolder = mGroups[sideIdx - 1][groupIdx - 1];
+				int curHealth = 0;
+				int health = 0;
+				
+				for (int gridIdx = 1; gridIdx <= group.length(); gridIdx++) {
+					LuaValue grid = group.get(gridIdx);
+					LuaValue hero = grid.get("hero");
+					GridHolder gridHolder = groupHolder.grids[gridIdx - 1];
+					BattleHero heroBattle = gridHolder.hero;
+					
+					if (hero.isnil()) {
+						if (heroBattle != null) {
+							mField.removeView(heroBattle);
+							gridHolder.hero = null;
+						}
+					} else {
+						if (hero.get("is_dead").toboolean()) {
+							heroBattle.setStatus(BattleHero.Status.Dead);
+						} else if (hero.get("is_waitting").toboolean()) {
+							heroBattle.setStatus(BattleHero.Status.Active);
+						} else {
+							heroBattle.setStatus(BattleHero.Status.Normal);
+						}
+						
+						int chl = hero.get("cur_health").toint();
+						int hl = hero.get("health").toint();
+						heroBattle.setHealth(chl, hl);
+						if (hero.get("type").toint() == HeroType.Normal.ordinal()) {
+							curHealth += chl;
+							health += hl;
+						}
+						
+						heroBattle.setShield(hero.get("cur_shield").toint(),
+								hero.get("shield").toint());
+					}
+				}
+				
+				if (health == 0) {
+					groupHolder.health.setProgress(0);
+				} else {
+					groupHolder.health.setProgress(curHealth / (float) health);
+				}
+				
+				int magicValue = group.get("magic_value").toint();
+				for (int i = 0; i < groupHolder.magics.length; i++) {
+					groupHolder.magics[i].setVisibility(i < magicValue ?
+						View.VISIBLE : View.INVISIBLE);
+				}
+			}
+		}
+		
+		for (int i = 0; i < mSkills.length; i++) {
+			SkillHolder holder = mSkills[i];
+			LuaValue hero = holder.hero;
+			
+			if (hero == null) {
+				continue;
+			}
+			
+			holder.name.setText(hero.get("name").tojstring());
+			if (mBattle.get("checkActive").call(mBattle, hero.get("grid")).toboolean()) {
+				holder.name.setTextColor(0xff000000);
+			} else {
+				holder.name.setTextColor(0xffffffff);
+			}
+			
+			int cd = holder.skill.get("cd_count").toint();
+			if (cd > 0) {
+				holder.cd.setText(String.valueOf(cd));
+				holder.cd.setVisibility(View.VISIBLE);
+			} else {
+				holder.cd.setVisibility(View.INVISIBLE);
+			}
+		}
+	}
+	
+	protected void display(Object text) {
+		if (text instanceof Integer) {
+			mTvDisplay.setText((Integer) text);
+		} else {
+			mTvDisplay.setText(String.valueOf(text));
+		}
+		mTvDisplay.setVisibility(View.VISIBLE);
+		
+		final Object mark = new Object();
+		mDisplayMark = mark;
+		ThreadUtil.getMain().run(new Runnable() {
+			public void run() {
+				if (mDisplayMark == mark) {
+					mTvDisplay.setVisibility(View.INVISIBLE);
+				}
+			}
+		}, 1000);
+	}
+	
+	@Override
+	protected void onDestroy() {
+		postEvent(new Runnable() {
+			public void run() {
+				mBattle.get("stop").call(mBattle);
+			}
+		});
+		
+		super.onDestroy();
 	}
 }

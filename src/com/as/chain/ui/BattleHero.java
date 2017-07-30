@@ -112,16 +112,22 @@ public class BattleHero extends LinearLayout {
 		}, 1000);
 	}
 	
+	@SuppressWarnings("deprecation")
 	@Override
 	public void setX(float x) {
-		android.view.ViewGroup.LayoutParams lp = getLayoutParams();
-		super.setX(x - lp.width / 2);
+		android.widget.AbsoluteLayout.LayoutParams lp =
+			(android.widget.AbsoluteLayout.LayoutParams) getLayoutParams();
+		lp.x = (int) x - lp.width / 2;
+		// super.setX(x - lp.width / 2);
 	}
 	
+	@SuppressWarnings("deprecation")
 	@Override
 	public void setY(float y) {
-		android.view.ViewGroup.LayoutParams lp = getLayoutParams();
-		super.setY(y - lp.height * 3 / 5);
+		android.widget.AbsoluteLayout.LayoutParams lp =
+			(android.widget.AbsoluteLayout.LayoutParams) getLayoutParams();
+		lp.y = (int) y - lp.height * 3 / 5;
+		// super.setY(y - lp.height * 3 / 5);
 	}
 	
 	@Override
