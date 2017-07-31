@@ -91,11 +91,11 @@ public class BattleListener extends ThreeArgFunction {
 				}
 				
 				if (Define.MOMENT_GAME_START.equals(moment)) {
-					mActivity.display(R.string.msg_battle_start);
+					mActivity.display(R.string.msg_battle_start, 1000);
 					mActivity.resumeBattle(1500);
 				} else if(Define.MOMENT_ROUND_START.equals(moment)) {
 					mActivity.display(mActivity.getString(R.string.msg_round_index,
-						mBattle.get("round_index").toint()));
+						mBattle.get("round_index").toint()), 1000);
 					
 					mActivity.mRound.setText(mActivity.getString(
 						R.string.msg_round_index_max,
@@ -175,17 +175,40 @@ public class BattleListener extends ThreeArgFunction {
 						
 						int damage = damages.get(i).toint();
 						dstHolder.hero.display("-" + damage, 0xffff0000);
-						
-						dstHolder.hero.setHealth(dstHero.get("cur_health").toint(),
-							dstHero.get("health").toint());
-						dstHolder.hero.setShield(dstHero.get("cur_shield").toint(),
-							dstHero.get("shield").toint());
 					}
 					
 					mActivity.updateBase();
 					mActivity.resumeBattle(1000);
+				} else if (Define.MOMENT_DEATH.equals(moment)) {
+					LuaValue dstHeroes = data.get("dst_heroes");
+					
+					for (int i = 1; i <= dstHeroes.length(); i++) {
+						LuaValue dstHero = dstHeroes.get(i);
+						LuaValue dstGrid = dstHero.get("grid");
+						GridHolder dstHolder = mActivity.mGroups
+							[dstGrid.get("side_index").toint() - 1]
+							[dstGrid.get("group_index").toint() - 1].grids
+							[dstGrid.get("grid_index").toint() - 1];
+						
+						dstHolder.hero.setStatus(BattleHero.Status.Dead);
+					}
+					
+					mActivity.resumeBattle(500);
+				} else if (Define.MOMENT_GAME_END.equals(moment)) {
+					int result = data.get("result").toint();
+					int text;
+					
+					if (result > 0) {
+						text = R.string.wd_win;
+					} else if (result < 0) {
+						text = R.string.wd_lose;
+					} else {
+						text = R.string.wd_draw;
+					}
+					
+					mActivity.display(text, 5000);
 				} else {
-					mActivity.resumeBattle(1000);
+					mActivity.resumeBattle(0);
 				}
 			}
 		});

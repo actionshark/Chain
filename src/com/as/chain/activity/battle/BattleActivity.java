@@ -17,13 +17,17 @@ import com.as.chain.game.Lineup;
 import com.as.chain.game.ScriptMgr;
 import com.as.chain.game.Lineup.Node;
 import com.as.chain.ui.BattleHero;
+import com.as.chain.ui.IDialogClickListener;
 import com.as.chain.ui.ProgressBar;
+import com.as.chain.ui.SimpleDialog;
 import com.as.chain.util.DataMgr;
 import com.js.log.Level;
 import com.js.log.Logger;
 import com.js.thread.ThreadUtil;
 
+import android.app.Dialog;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.View.OnClickListener;
@@ -327,7 +331,7 @@ public class BattleActivity extends BaseActivity {
 		}
 	}
 	
-	protected void display(Object text) {
+	protected void display(Object text, long duration) {
 		if (text instanceof Integer) {
 			mTvDisplay.setText((Integer) text);
 		} else {
@@ -343,7 +347,7 @@ public class BattleActivity extends BaseActivity {
 					mTvDisplay.setVisibility(View.INVISIBLE);
 				}
 			}
-		}, 1000);
+		}, duration);
 	}
 	
 	@Override
@@ -355,5 +359,29 @@ public class BattleActivity extends BaseActivity {
 		});
 		
 		super.onDestroy();
+	}
+	
+	@Override
+	public boolean onKeyUp(int keyCode, KeyEvent event) {
+		if (keyCode == KeyEvent.KEYCODE_BACK) {
+			SimpleDialog sd = new SimpleDialog(this);
+			sd.setMessage(R.string.msg_exit_battle_confirm);
+			sd.setButtons(R.string.wd_cancel, R.string.wd_confirm);
+			sd.setClickListener(new IDialogClickListener() {
+				@Override
+				public void onClick(Dialog dialog, int index, ClickType type) {
+					if (index == 1) {
+						finish();
+					}
+					
+					dialog.dismiss();
+				}
+			});
+			sd.show();
+			
+			return true;
+		}
+		
+		return super.onKeyUp(keyCode, event);
 	}
 }

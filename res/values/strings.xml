@@ -13,6 +13,7 @@
 	<string name="msg_delete_download_hint">%1$d个文件将要被删除\n%2$d个文件将要下载</string>
 	<string name="msg_deleting_files">正在删除 %1$d/%2$d\n%3$s</string>
 	<string name="msg_downloading_files">正在下载 %1$d/%2$d\n%3$s</string>
+	<string name="msg_exit_battle_confirm">是否要退出战斗？</string>
 	<string name="msg_first_cd">进场:%1$d</string>
 	<string name="msg_input_nickname">请输入昵称</string>
 	<string name="msg_repeat_cd">冷却:%1$d</string>
@@ -28,11 +29,14 @@
 	<string name="wd_confirm">确认</string>
 	<string name="wd_connecting">连接中</string>
 	<string name="wd_defence">防御</string>
+	<string name="wd_draw">平局</string>
 	<string name="wd_health">生命</string>
 	<string name="wd_hero">英雄</string>
 	<string name="wd_history">历史</string>
+	<string name="wd_lose">失败</string>
 	<string name="wd_ok">好的</string>
 	<string name="wd_offline">离线</string>
 	<string name="wd_online">在线</string>
 	<string name="wd_unkonwn">未知</string>
+	<string name="wd_win">胜利</string>
 </resources>

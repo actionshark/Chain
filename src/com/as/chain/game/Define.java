@@ -48,6 +48,7 @@ public class Define {
 	
 	public static final String MOMENT_ATTACK = "Attack";
 	public static final String MOMENT_DAMAGE = "Damage";
+	public static final String MOMENT_DEATH = "Death";
 	
 	public static final int PHASE_BEFORE = 0;
 	public static final int PHASE_AFTER = 2;
