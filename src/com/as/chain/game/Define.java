@@ -16,6 +16,10 @@ public class Define {
 		}
 	}
 	
+	public static enum HeroType {
+		Normal, Spare;
+	}
+	
 	public static enum Sex {
 		Male("男"), Female("女");
 		
@@ -36,8 +40,8 @@ public class Define {
 		}
 	}
 	
-	public static enum HeroType {
-		Normal, Spare;
+	public static enum ChainType {
+		Fall, Back, Float, Fly;
 	}
 	
 	public static final String MOMENT_GAME_START = "GameStart";

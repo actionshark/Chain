@@ -118,7 +118,8 @@ public class BattleHero extends LinearLayout {
 		android.widget.AbsoluteLayout.LayoutParams lp =
 			(android.widget.AbsoluteLayout.LayoutParams) getLayoutParams();
 		lp.x = (int) x - lp.width / 2;
-		// super.setX(x - lp.width / 2);
+		
+		super.setX(lp.x);
 	}
 	
 	@SuppressWarnings("deprecation")
@@ -127,18 +128,23 @@ public class BattleHero extends LinearLayout {
 		android.widget.AbsoluteLayout.LayoutParams lp =
 			(android.widget.AbsoluteLayout.LayoutParams) getLayoutParams();
 		lp.y = (int) y - lp.height * 3 / 5;
-		// super.setY(y - lp.height * 3 / 5);
+		
+		super.setY(lp.y);
 	}
 	
+	@SuppressWarnings("deprecation")
 	@Override
 	public float getX() {
-		android.view.ViewGroup.LayoutParams lp = getLayoutParams();
-		return super.getX() + lp.width / 2;
+		android.widget.AbsoluteLayout.LayoutParams lp =
+				(android.widget.AbsoluteLayout.LayoutParams) getLayoutParams();
+		return lp.x + lp.width / 2;
 	}
 	
+	@SuppressWarnings("deprecation")
 	@Override
 	public float getY() {
-		android.view.ViewGroup.LayoutParams lp = getLayoutParams();
-		return super.getY() + lp.height * 3 / 5;
+		android.widget.AbsoluteLayout.LayoutParams lp =
+				(android.widget.AbsoluteLayout.LayoutParams) getLayoutParams();
+		return lp.y + lp.height * 3 / 5;
 	}
 }
