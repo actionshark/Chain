@@ -54,6 +54,8 @@ public class Define {
 	public static final String MOMENT_DAMAGE = "Damage";
 	public static final String MOMENT_DEATH = "Death";
 	
+	public static final String MOMENT_MAGIC_CHANGE = "MagicChange";
+	
 	public static final int PHASE_BEFORE = 0;
 	public static final int PHASE_AFTER = 2;
 }

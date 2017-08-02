@@ -207,6 +207,9 @@ public class BattleListener extends ThreeArgFunction {
 					
 					mActivity.updateBase();
 					mActivity.resumeBattle(1000);
+				} else if (Define.MOMENT_MAGIC_CHANGE.equals(moment)) {
+					mActivity.updateBase();
+					mActivity.resumeBattle(1000);
 				} else if (Define.MOMENT_DEATH.equals(moment)) {
 					LuaValue dstNodes = data.get("dst_nodes");
 					

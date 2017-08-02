@@ -21,6 +21,8 @@ import com.as.chain.util.Const;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.text.Html;
+import android.text.method.LinkMovementMethod;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -209,7 +211,11 @@ public class HeroActivity extends BaseActivity {
 					.setText(getString(R.string.msg_repeat_cd, skill.repeatCd));
 			}
 			
-			((TextView) view.findViewById(R.id.tv_desc)).setText(skill.desc);
+			TextView tvDesc = (TextView) view.findViewById(R.id.tv_desc);
+			@SuppressWarnings("deprecation")
+			CharSequence desc = Html.fromHtml(skill.desc);
+			tvDesc.setText(desc);
+			tvDesc.setMovementMethod(LinkMovementMethod.getInstance());
 		}
 	}
 	

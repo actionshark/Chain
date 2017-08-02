@@ -137,7 +137,7 @@ public class BattleActivity extends BaseActivity {
 							dst.set("group_index", mMyGroupIdx);
 							dst.set("grid_index", sh.gridIdx);
 							
-							mBattle.get("dispatchActive").call(mBattle, src, dst);
+							mBattle.get("castActive").call(mBattle, src, dst);
 						}
 					});
 				}
