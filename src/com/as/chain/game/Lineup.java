@@ -11,6 +11,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import com.as.app.Setting;
+import com.as.chain.chat.req.UploadLineup;
 import com.js.log.Level;
 import com.js.log.Logger;
 
@@ -18,12 +19,10 @@ public class Lineup {
 	public static final String TAG = Lineup.class.getSimpleName();
 	
 	public static final String KEY_LINEUP_INDEX = "lineup_index";
-	public static final String KEY_LINEUP_DATA = "lineup_data_%d";
 	public static final String KEY_POSITION = "pos";
 	public static final String KEY_HERO = "hero";
 	
 	public static final int DATA_NUM = 3;
-	
 	public static final int GRID_NUM = 9;
 	
 	public static final int MIN_HERO_NUM = 1;
@@ -34,43 +33,45 @@ public class Lineup {
 		public Hero hero;
 	}
 	
+	private static final List<List<Node>> sData = new ArrayList<List<Node>>();
+	private static String SERVER_DATA;
+	
+	private static final Comparator<Node> CMP = new Comparator<Node>() {
+		@Override
+		public int compare(Node a, Node b) {
+			return a.position - b.position;
+		}
+	};
+	
+	static {
+		for (int i = 0; i < DATA_NUM; i++) {
+			sData.add(new ArrayList<Node>());
+		}
+	}
+	
+	public static int checkIndex(int index) {
+		if (index < 0 || index >= DATA_NUM) {
+			return 0;
+		} else {
+			return index;
+		}
+	}
+	
 	public static void saveIndex(int index) {
-		Setting.getInstance().setInt(KEY_LINEUP_INDEX, index);
+		Setting.getInstance().setInt(KEY_LINEUP_INDEX, checkIndex(index));
 	}
 	
 	public static int loadIndex() {
 		int index = Setting.getInstance().getInt(Lineup.KEY_LINEUP_INDEX);
-		
-		if (index < 1 || index > DATA_NUM) {
-			index = 1;
-			saveIndex(index);
-		}
-		
-		return index;
+		return checkIndex(index);
 	}
 	
-	public static void saveData(List<Node> heroes) {
-		saveData(loadIndex(), heroes);
+	public static void saveData(List<Node> list) {
+		saveData(loadIndex(), list);
 	}
 	
-	public static void saveData(int index, List<Node> heroes) {
-		try {
-			JSONArray ja = new JSONArray();
-			
-			for (Node node : heroes) {
-				JSONObject jo = new JSONObject();
-				jo.put(KEY_POSITION, node.position);
-				jo.put(KEY_HERO, node.hero.id);
-				
-				ja.put(ja.length(), jo);
-			}
-			
-			Setting.getInstance().setString(
-				String.format(KEY_LINEUP_DATA, index),
-				ja.toString());
-		} catch (Exception e) {
-			Logger.getInstance().print(TAG, Level.E, e);
-		}
+	public static void saveData(int index, List<Node> list) {
+		sData.set(checkIndex(index), checkData(list));
 	}
 	
 	public static List<Node> loadData() {
@@ -78,47 +79,37 @@ public class Lineup {
 	}
 	
 	public static List<Node> loadData(int index) {
-		List<Node> heroes = new ArrayList<Node>();
+		List<Node> list = sData.get(checkIndex(index));
+		return checkData(list);
+	}
+	
+	private static List<Node> checkData(List<Node> list) {
 		Set<Integer> posSet = new HashSet<Integer>();
 		Set<String> heroSet = new HashSet<String>();
 		
-		String key = String.format(KEY_LINEUP_DATA, index);
-		String str = Setting.getInstance().getString(key);
-		
-		if (str != null) {
-			try {
-				JSONArray ja = new JSONArray(str);
+		for (int i = list.size() - 1; i >= 0; i--) {
+			Node node = list.get(i);
+			
+			if (node.position < 1 || node.position > GRID_NUM
+					|| posSet.contains(node.position)) {
 				
-				for (int i = 0; i < ja.length(); i++) {
-					JSONObject jo = ja.getJSONObject(i);
-					Node node = new Node();
-					
-					node.position = jo.getInt(KEY_POSITION);
-					if (node.position < 1 || node.position > GRID_NUM
-							|| posSet.contains(node.position)) {
-						
-						continue;
-					}
-					
-					String id = jo.getString(KEY_HERO);
-					node.hero = ScriptMgr.getInstance().getHero(id);
-					if (node.hero == null || heroSet.contains(id)) {
-						continue;
-					}
-					
-					heroes.add(node);
-					posSet.add(node.position);
-					heroSet.add(id);
-				}
-			} catch (Exception e) {
-				Logger.getInstance().print(TAG, Level.E, e);
+				list.remove(i);
+				continue;
 			}
+			
+			if (node.hero == null || heroSet.contains(node.hero.id)) {
+				list.remove(i);
+				continue;
+			}
+			
+			posSet.add(node.position);
+			heroSet.add(node.hero.id);
 		}
 		
-		if (heroes.size() < MIN_HERO_NUM) {
+		if (list.size() < MIN_HERO_NUM) {
 			List<Hero> hs = ScriptMgr.getInstance().getHeroes();
 			
-			for (int i = 0; heroes.size() < MIN_HERO_NUM; i++) {
+			for (int i = 0; list.size() < MIN_HERO_NUM; i++) {
 				Hero hero = hs.get(i);
 				
 				if (heroSet.contains(hero.id) == false) {
@@ -128,7 +119,7 @@ public class Lineup {
 							node.position = j;
 							node.hero = hero;
 							
-							heroes.add(node);
+							list.add(node);
 							posSet.add(node.position);
 							heroSet.add(hero.id);
 							break;
@@ -138,19 +129,88 @@ public class Lineup {
 					break;
 				}
 			}
-		} else if (heroes.size() > MAX_HERO_NUM) {
+		} else if (list.size() > MAX_HERO_NUM) {
 			do {
-				heroes.remove(heroes.size() - 1);
-			} while (heroes.size() > MAX_HERO_NUM);
+				list.remove(list.size() - 1);
+			} while (list.size() > MAX_HERO_NUM);
 		}
 		
-		Collections.sort(heroes, new Comparator<Node>() {
-			@Override
-			public int compare(Node a, Node b) {
-				return a.position - b.position;
-			}
-		});
+		Collections.sort(list, CMP);
 		
-		return heroes;
+		return list;
+	}
+	
+	public static void onPushData(String str) throws Exception {
+		SERVER_DATA = str;
+		
+		JSONArray jas = new JSONArray(str);
+		
+		for (int i = 0; i < DATA_NUM; i++) {
+			JSONArray ja;
+			if (i < jas.length()) {
+				ja = jas.getJSONArray(i);
+			} else {
+				ja = new JSONArray();
+			}
+			
+			List<Node> list = new ArrayList<Node>();
+			
+			for (int j = 0; j < ja.length(); j++) {
+				try {
+					JSONObject jo = ja.getJSONObject(j);
+					Node node = new Node();
+					
+					node.position = jo.getInt(KEY_POSITION);
+					
+					String id = jo.getString(KEY_HERO);
+					node.hero = ScriptMgr.getInstance().getHero(id);
+					
+					list.add(node);
+				} catch (Exception e) {
+					Logger.getInstance().print(TAG, Level.E, e);
+				}
+			}
+			
+			saveData(i, list);
+		}
+	}
+	
+	private static String data2String() {
+		JSONArray jas = new JSONArray();
+		
+		try {
+			for (int i = 0; i < DATA_NUM; i++) {
+				List<Node> list = sData.get(i);
+				JSONArray ja = new JSONArray();
+				
+				for (Node node : list) {
+					JSONObject jo = new JSONObject();
+					jo.put(KEY_POSITION, node.position);
+					jo.put(KEY_HERO, node.hero.id);
+					
+					ja.put(ja.length(), jo);
+				}
+				
+				jas.put(i, ja);
+			}
+			
+		} catch (Exception e) {
+			Logger.getInstance().print(TAG, Level.E, e);
+		}
+
+		return jas.toString();
+	}
+	
+	public static void tryUploadData() {
+		String data = data2String();
+		if (data.equals(SERVER_DATA)) {
+			return;
+		}
+		
+		UploadLineup ul = new UploadLineup();
+		ul.data = data;
+		ul.send();
+		
+		SERVER_DATA = data;
 	}
 }

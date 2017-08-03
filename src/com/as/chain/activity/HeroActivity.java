@@ -153,7 +153,7 @@ public class HeroActivity extends BaseActivity {
 		for (int i = 0; i < mViewLineup.length; i++) {
 			int id = Res.getIdId("ml_lineup_" + (i + 1));
 			mViewLineup[i] = findViewById(id);
-			final int index = i + 1;
+			final int index = i;
 			mViewLineup[i].setOnClickListener(new OnClickListener() {
 				@Override
 				public void onClick(View v) {
@@ -359,7 +359,7 @@ public class HeroActivity extends BaseActivity {
 			TextView text = (TextView) mViewLineup[i]
 				.findViewById(R.id.tv_text);
 			
-			if (i + 1 == index) {
+			if (i == index) {
 				text.setTextColor(0xffff0000);
 			} else {
 				text.setTextColor(0xff000000);
@@ -370,5 +370,12 @@ public class HeroActivity extends BaseActivity {
 			updateLineupGrid(node.hero, mTvLineup[node.position - 1]);
 			mHeroesAdapter.select(node.hero);
 		}
+	}
+	
+	@Override
+	protected void onDestroy() {
+		Lineup.tryUploadData();
+		
+		super.onDestroy();
 	}
 }

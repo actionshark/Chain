@@ -314,7 +314,8 @@ public class BattleActivity extends BaseActivity {
 				continue;
 			}
 			
-			holder.name.setText(hero.get("name").tojstring());
+			holder.name.setText(String.format("%s %d", hero.get("name").tojstring(),
+					holder.skill.get("magic_cost").toint()));
 			if (mBattle.get("checkActive").call(mBattle, hero.get("grid")).toboolean()) {
 				holder.name.setTextColor(0xff000000);
 			} else {
